@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable (404) | Lionel Ewene Monzia</title>
+<meta name="description" content="La page demandée n'existe pas ou a été déplacée.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f6fb; --surface:#fff; --text:#14141f; --accent:#6c5ce7; --accent2:#0f766e; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px 24px; text-align: center;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid rgba(108,92,231,0.16);
+    border-radius: 24px;
+    padding: 56px 40px;
+    max-width: 560px; width: 100%;
+    box-shadow: 0 4px 8px rgba(18,18,28,.05), 0 18px 44px rgba(18,18,28,.10);
+  }
+  .code {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(72px, 18vw, 128px);
+    font-weight: 800; line-height: 1;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h1 { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; margin: 8px 0 12px; }
+  p  { color: rgba(18,18,28,.55); font-size: 16px; line-height: 1.7; margin: 0 0 28px; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 30px; border-radius: 60px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 8px 20px rgba(108,92,231,.3); }
+  .btn-ghost   { color: var(--text); border: 1px solid rgba(18,18,28,.15); }
+  .btn:hover   { transform: translateY(-2px); }
+  .links { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(18,18,28,.08); font-size: 14px; }
+  .links a { color: var(--accent2); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="code">404</div>
+    <h1>Cette page n'existe pas</h1>
+    <p>Le lien est peut-être erroné ou la page a été déplacée.<br>Revenez à l'accueil ou écrivez-moi directement.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="./">&larr; Retour à l'accueil</a>
+      <a class="btn btn-ghost" href="mailto:lionelewene7@gmail.com">Me contacter</a>
+    </div>
+    <div class="links">
+      Ou écrivez-moi sur <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </main>
+</body>
+</html>

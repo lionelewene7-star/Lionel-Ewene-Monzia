@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lionelewene7.github.io/portfolio/sitemap.xml
+Sitemap: https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/sitemap.xml

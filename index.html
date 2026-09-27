@@ -3,23 +3,135 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lionel Ewene Monzia</title>
-  <meta name="description" content="Découvrez le portfolio de Lionel Ewene Monzia, développeur et designer polyvalent spécialisé en sites web, applications mobiles et design graphique.">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <title>Lionel Ewene Monzia | Développeur Web &amp; Designer UI/UX</title>
+  <meta name="description" content="Lionel Ewene Monzia, développeur web et designer UI/UX basé en République Démocratique du Congo. Sites web, applications mobiles, logiciels, affiches et identité visuelle. Contactez-moi pour votre projet.">
+  <meta name="author" content="Lionel Ewene Monzia">
+  <meta name="keywords" content="développeur web, designer UI/UX, création site web, application mobile, design graphique, affiches, invitations, RD Congo, Kinshasa, freelance">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#f6f6fb">
+  <link rel="canonical" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
+
+  <!-- Favicon : logo "leo" -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph (partage WhatsApp / Facebook / LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
+  <meta property="og:site_name" content="Lionel Ewene Monzia">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Lionel Ewene Monzia | Développeur Web &amp; Designer UI/UX">
+  <meta property="og:description" content="Développeur web et designer UI/UX. Sites web, applications mobiles, logiciels, affiches et identité visuelle. Disponible pour de nouveaux projets.">
+  <meta property="og:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lionel Ewene Monzia â€” Développeur Web &amp; Designer UI/UX">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lionel Ewene Monzia | Développeur Web &amp; Designer UI/UX">
+  <meta name="twitter:description" content="Développeur web et designer UI/UX. Sites web, applications mobiles, logiciels, affiches et identité visuelle.">
+  <meta name="twitter:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lionel Ewene Monzia",
+    "alternateName": "Leo Monzia",
+    "jobTitle": "Développeur Web & Designer UI/UX",
+    "description": "Développeur et designer polyvalent spécialisé en sites web, applications mobiles, logiciels, design graphique, affiches et invitations.",
+    "url": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/",
+    "image": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png",
+    "email": "mailto:lionelewene7@gmail.com",
+    "telephone": "+243852867852",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CD"
+    },
+    "knowsAbout": [
+      "Développement web",
+      "HTML CSS Tailwind",
+      "JavaScript TypeScript",
+      "React React Native",
+      "Node.js",
+      "Python",
+      "UI UX Design",
+      "Figma",
+      "Photoshop Illustrator",
+      "Design graphique",
+      "Impression / Print"
+    ],
+    "sameAs": [
+      "https://github.com/lionelewene7-star",
+      "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sites Web" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Applications Mobiles" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logiciels" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design Graphique" } }
+      ]
+    }
+  }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet">
   <style>
-    html, body { height: 100%; margin: 0; }
-    * { box-sizing: border-box; }
+    /* ============================================================
+       Reset minimal (remplace le CDN Tailwind, ~110 Ko économisés)
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    img, svg, video, canvas { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { background: none; border: 0; cursor: pointer; }
+    strong, b { font-weight: 700; }
+
+    /* ---- Utilitaires (équivalents des classes Tailwind utilisées) ---- */
+    .h-full { height: 100%; }
+    .hidden { display: none; }
+    .items-center { align-items: center; }
+    .gap-8 { gap: 32px; }
+    @media (min-width: 768px) {
+      .md\:flex { display: flex; }
+      .md\:hidden { display: none; }
+      .md\:grid-cols-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    html, body { min-height: 100%; margin: 0; }
+
+    /* Fallback for browsers without dvh support */
+    .hero-full { min-height: 100vh; }
+    @supports (min-height: 100svh) {
+      .hero-full { min-height: 100svh; }
+    }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #14141f;
-      --text: #e8e6f0;
+      /* ThÃƒ¨me clair */
+      --bg: #f6f6fb;
+      --surface: #ffffff;
+      --text: #14141f;
       --accent: #6c5ce7;
-      --accent2: #00cec9;
+      --accent2: #0f766e;
+      --nav-bg: rgba(246, 246, 251, 0.88);
+      --shadow-sm: 0 1px 2px rgba(18, 18, 28, 0.05);
+      --shadow-md: 0 2px 4px rgba(18, 18, 28, 0.04), 0 10px 28px rgba(18, 18, 28, 0.07);
+      --shadow-lg: 0 4px 8px rgba(18, 18, 28, 0.05), 0 18px 44px rgba(18, 18, 28, 0.10);
     }
 
     body {
@@ -31,20 +143,12 @@
 
     .font-heading { font-family: 'Syne', sans-serif; }
 
-    /* Animated background */
-    #bg-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
 
     .gradient-orb {
       position: fixed;
       border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.15;
+      filter: blur(110px);
+      opacity: 0.5;
       pointer-events: none;
       z-index: 0;
     }
@@ -159,10 +263,11 @@
     .glow-card {
       position: relative;
       background: var(--surface);
-      border: 1px solid rgba(108, 92, 231, 0.15);
+      border: 1px solid rgba(108, 92, 231, 0.16);
       border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
     }
     .glow-card::before {
       content: '';
@@ -177,6 +282,7 @@
     .glow-card:hover {
       transform: translateY(-8px);
       border-color: rgba(108, 92, 231, 0.4);
+      box-shadow: var(--shadow-lg);
     }
     .glow-card:hover::before {
       opacity: 1;
@@ -318,7 +424,9 @@
       background: var(--surface);
       border: 1px solid var(--accent);
       color: var(--text);
+      box-shadow: var(--shadow-lg);
       z-index: 9999;
+      max-width: min(420px, calc(100vw - 40px));
       transform: translateY(120px);
       opacity: 0;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -337,41 +445,178 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    /* Photo cards: dark scrim so white text stays readable on a light page */
+    .service-card { position: relative; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12, 12, 22, 0.38) 0%, rgba(12, 12, 22, 0.85) 100%);
+      z-index: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card > * { position: relative; z-index: 1; }
+
+    /* ---- Form controls (professional, consistent) ---- */
+    .field {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid rgba(108, 92, 231, 0.15);
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field::placeholder { color: rgba(18,18,28,0.6); }
+    .field:hover { border-color: rgba(108, 92, 231, 0.3); }
+    .field:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.18);
+    }
+    .field.invalid {
+      border-color: #e03131;
+      box-shadow: 0 0 0 3px rgba(224, 49, 49, 0.14);
+    }
+    select.field {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 44px;
+      cursor: pointer;
+    }
+    select.field option { background: var(--surface); color: var(--text); }
+    textarea.field { resize: vertical; min-height: 120px; }
+
+    .field-error {
+      display: none;
+      font-size: 12px;
+      color: #c92a2a;
+      margin-top: 5px;
+    }
+    .field-error.show { display: block; }
+
+    /* Honeypot : invisible aux humains, visible aux robots */
+    .hp {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Bouton en cours d'envoi */
+    .btn-sending { opacity: 0.75; pointer-events: none; }
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Lien de secours affiché si le pop-up est bloqué */
+    .wa-fallback {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(15, 118, 110, 0.07);
+      border: 1px solid rgba(15, 118, 110, 0.28);
+      font-size: 14px;
+      color: var(--accent2);
+    }
+    .wa-fallback.show { display: block; }
+    .wa-fallback a { color: var(--accent2); }
+
+    /* Lien d'évitement (accessibilité) */
+    .skip-link {
+      position: absolute;
+      top: -60px; left: 16px;
+      z-index: 9999;
+      padding: 12px 20px;
+      border-radius: 0 0 10px 10px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: top 0.25s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Logo dans la navigation */
+    .brand-logo {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full"><!-- Animated Background -->
   <div class="gradient-orb orb-1"></div>
   <div class="gradient-orb orb-2"></div>
   <div class="gradient-orb orb-3"></div>
   <canvas id="particles"></canvas>
-  <div id="app-wrapper" style="position:relative; z-index:1; width:100%; height:100%; overflow-y:auto; overflow-x:hidden;"><!-- Navigation -->
+  <a href="#hero" class="skip-link">Aller au contenu principal</a>
+  <div id="app-wrapper" style="position:relative; z-index:1; width:100%;"><!-- Navigation -->
    <nav id="main-nav" style="position:fixed; top:0; left:0; right:0; z-index:100; transition: background 0.3s, backdrop-filter 0.3s;">
-    <div style="max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; align-items:center; justify-content:space-between;"><a href="#hero" class="font-heading" style="font-size:24px; font-weight:800; text-decoration:none; color:var(--text);"> L<span class="text-gradient">.</span>E<span class="text-gradient">.</span>M </a>
-     <div class="hidden md:flex items-center gap-8"><a href="#about" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">À propos</a> <a href="#services" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Services</a> <a href="#skills" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Compétences</a> <a href="#projects" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Projets</a> <a href="#contact" class="btn-gradient magnetic" style="color:white; text-decoration:none; font-size:14px; letter-spacing:1px; padding:10px 24px; border-radius:50px; font-weight:600;">Contact</a>
+    <div style="max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; align-items:center; justify-content:space-between;"><a href="#hero" class="magnetic" style="display:flex; align-items:center; gap:12px; text-decoration:none;" aria-label="Lionel Ewene Monzia â€” accueil">
+     <img src="favicon-96x96.png" alt="" class="brand-logo" width="42" height="42">
+     <span class="font-heading" style="font-size:24px; font-weight:800; color:var(--text);"> L<span class="text-gradient">.</span>E<span class="text-gradient">.</span>M </span>
+    </a>
+     <div class="hidden md:flex items-center gap-8"><a href="#about" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Ã€ propos</a> <a href="#services" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Services</a> <a href="#skills" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Compétences</a> <a href="#projects" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Projets</a> <a href="#contact" class="btn-gradient magnetic" style="color:white; text-decoration:none; font-size:14px; letter-spacing:1px; padding:10px 24px; border-radius:50px; font-weight:600;">Contact</a>
      </div><button id="menu-toggle" class="md:hidden" style="background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Menu"> <i data-lucide="menu" style="width:28px;height:28px;"></i> </button>
     </div>
    </nav><!-- Mobile Menu -->
    <div id="mobile-menu" class="mobile-menu" style="position:fixed; top:0; right:0; width:280px; height:100%; background:var(--surface); z-index:200; padding:80px 32px 32px;"><button id="menu-close" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Fermer"> <i data-lucide="x" style="width:28px;height:28px;"></i> </button>
-    <div style="display:flex; flex-direction:column; gap:24px;"><a href="#about" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">À propos</a> <a href="#services" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Services</a> <a href="#skills" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Compétences</a> <a href="#projects" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Projets</a> <a href="#contact" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Contact</a>
+    <div style="display:flex; flex-direction:column; gap:24px;"><a href="#about" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Ã€ propos</a> <a href="#services" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Services</a> <a href="#skills" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Compétences</a> <a href="#projects" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Projets</a> <a href="#contact" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Contact</a>
     </div>
    </div><!-- Hero Section -->
-   <section id="hero" style="min-height:100%; display:flex; align-items:center; padding:120px 24px 80px;">
+   <section id="hero" class="hero-full" style="display:flex; align-items:center; padding:120px 24px 80px;">
     <div style="max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr; gap:60px; align-items:center;" class="md:grid-cols-2">
      <div>
       <div class="reveal" style="margin-bottom:20px;"><span style="display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:50px; background:rgba(108,92,231,0.1); border:1px solid rgba(108,92,231,0.3); font-size:14px; color:var(--accent2);"> <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);animation:blink 1.5s infinite;"></span> Disponible pour de nouveaux projets </span>
       </div>
-      <div class="hero-text-line" style="margin-bottom:8px;"><span id="hero-greeting" style="font-size:clamp(18px,3vw,24px); color:rgba(232,230,240,0.6); animation-delay:0.2s;" class="font-heading">Bonjour, je suis</span>
+      <div class="hero-text-line" style="margin-bottom:8px;"><span id="hero-greeting" style="font-size:clamp(18px,3vw,24px); color:rgba(18,18,28,0.62); animation-delay:0.2s;" class="font-heading">Bonjour, je suis</span>
       </div>
-      <div class="hero-text-line"><span id="hero-name" class="font-heading" style="font-size:clamp(36px,7vw,72px); font-weight:800; line-height:1.05; animation-delay:0.4s;"> Lionel Ewene<br>
-        Monzia<span class="text-gradient">.</span> </span>
+      <div class="hero-text-line"><h1 id="hero-name" class="font-heading" style="font-size:clamp(36px,7vw,72px); font-weight:800; line-height:1.05; animation-delay:0.4s; margin:0;"> Lionel Ewene<br>
+        Monzia<span class="text-gradient">.</span> </h1>
       </div>
       <div class="hero-text-line" style="margin-top:12px;"><span id="hero-role" style="font-size:clamp(18px,3vw,28px); color:var(--accent2); animation-delay:0.6s;" class="font-heading"> <span id="typed-text"></span><span class="typing-cursor"></span> </span>
       </div>
-      <div class="reveal delay-4" style="margin-top:36px; display:flex; gap:16px; flex-wrap:wrap;"><a href="#projects" class="btn-gradient magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:white; text-decoration:none; font-weight:600; font-size:16px;"> Voir mes projets <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a> <a href="#contact" class="magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:var(--text); text-decoration:none; font-weight:600; font-size:16px; border:1px solid rgba(232,230,240,0.2); transition:border-color 0.3s;"> Me contacter <i data-lucide="send" style="width:16px;height:16px;"></i> </a>
+      <div class="reveal delay-4" style="margin-top:36px; display:flex; gap:16px; flex-wrap:wrap;"><a href="#projects" class="btn-gradient magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:white; text-decoration:none; font-weight:600; font-size:16px;"> Voir mes projets <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a> <a href="#contact" class="magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:var(--text); text-decoration:none; font-weight:600; font-size:16px; border:1px solid rgba(18,18,28,0.2); transition:border-color 0.3s;"> Me contacter <i data-lucide="send" style="width:16px;height:16px;"></i> </a>
       </div>
-      <div class="reveal delay-5" style="margin-top:48px; display:flex; gap:20px;"><a href="mailto:lionelewene7@gmail.com" class="magnetic" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:20px;height:20px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" class="magnetic" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:20px;height:20px;"></i> </a> <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="magnetic" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="github" style="width:20px;height:20px;"></i> </a>
+      <div class="reveal delay-5" style="margin-top:48px; display:flex; gap:20px;"><a href="mailto:lionelewene7@gmail.com" class="magnetic" aria-label="Écrire par email" title="Écrire par email" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:20px;height:20px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" class="magnetic" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:20px;height:20px;"></i> </a> <a href="https://github.com/lionelewene7-star" target="_blank" rel="noopener noreferrer" class="magnetic" aria-label="GitHub" title="GitHub" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="github" style="width:20px;height:20px;"></i> </a>
       </div>
      </div>
      <div class="reveal-scale delay-3" style="display:flex; justify-content:center;">
@@ -385,23 +630,23 @@
     </div>
    </section><!-- Marquee -->
    <div style="overflow:hidden; padding:24px 0; border-top:1px solid rgba(108,92,231,0.1); border-bottom:1px solid rgba(108,92,231,0.1);">
-    <div class="marquee-track"><span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(232,230,240,0.3); padding:0 40px;">Sites Web ✦ Applications Mobiles ✦ Design UI/UX ✦ Logiciels ✦ Affiches ✦ Invitations ✦ Branding ✦ Développement ✦ Créativité ✦</span> <span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(232,230,240,0.3); padding:0 40px;">Sites Web ✦ Applications Mobiles ✦ Design UI/UX ✦ Logiciels ✦ Affiches ✦ Invitations ✦ Branding ✦ Développement ✦ Créativité ✦</span>
+    <div class="marquee-track"><span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(18,18,28,0.65); padding:0 40px;">Sites Web âœ¦ Applications Mobiles âœ¦ Design UI/UX âœ¦ Logiciels âœ¦ Affiches âœ¦ Invitations âœ¦ Branding âœ¦ Développement âœ¦ Créativité âœ¦</span> <span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(18,18,28,0.65); padding:0 40px;">Sites Web âœ¦ Applications Mobiles âœ¦ Design UI/UX âœ¦ Logiciels âœ¦ Affiches âœ¦ Invitations âœ¦ Branding âœ¦ Développement âœ¦ Créativité âœ¦</span>
     </div>
    </div><!-- About Section -->
    <section id="about" style="padding:100px 24px;">
     <div style="max-width:1200px; margin:0 auto;">
-     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">01 — À propos</span>
+     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">01 â€” Ã€ propos</span>
       <h2 id="about-heading" class="font-heading" style="font-size:clamp(32px,5vw,52px); font-weight:800; margin-top:12px; line-height:1.15;">Un développeur<br><span class="text-gradient">passionné</span> &amp; polyvalent</h2>
      </div>
      <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="md:grid-cols-2">
       <div class="reveal-left delay-2">
-       <p id="about-text" style="font-size:17px; line-height:1.85; color:rgba(232,230,240,0.75);">Je suis Lionel Ewene Monzia, un développeur designer polyvalent et perfectionniste. Ma passion est de transformer des idées en expériences numériques exceptionnelles. Je crée des sites web, des applications web et mobiles, des logiciels, ainsi que toutes sortes d'affiches et invitations. Chaque projet est une opportunité de repousser les limites de la créativité et de la technique.</p>
+       <p id="about-text" style="font-size:17px; line-height:1.85; color:rgba(18,18,28,0.75);">Je suis Lionel Ewene Monzia, un développeur designer polyvalent et perfectionniste. Ma passion est de transformer des idées en expériences numériques exceptionnelles. Je crée des sites web, des applications web et mobiles, des logiciels, ainsi que toutes sortes d'affiches et invitations. Chaque projet est une opportunité de repousser les limites de la créativité et de la technique.</p>
        <div style="margin-top:32px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
         <div style="padding:20px; border-radius:16px; background:rgba(108,92,231,0.06); border:1px solid rgba(108,92,231,0.12);">
          <div class="counter-num font-heading" data-target="50" style="font-size:36px; font-weight:800; color:var(--accent);">
           0
          </div>
-         <div style="font-size:13px; color:rgba(232,230,240,0.5); margin-top:4px;">
+         <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-top:4px;">
           Projets réalisés
          </div>
         </div>
@@ -409,7 +654,7 @@
          <div class="counter-num font-heading" data-target="30" style="font-size:36px; font-weight:800; color:var(--accent2);">
           0
          </div>
-         <div style="font-size:13px; color:rgba(232,230,240,0.5); margin-top:4px;">
+         <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-top:4px;">
           Clients satisfaits
          </div>
         </div>
@@ -424,7 +669,7 @@
           <div class="font-heading" style="font-weight:700; font-size:16px;">
            Perfectionniste
           </div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5);">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65);">
            Chaque pixel compte
           </div>
          </div>
@@ -436,7 +681,7 @@
           <div class="font-heading" style="font-weight:700; font-size:16px;">
            Polyvalent
           </div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5);">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65);">
            Web, mobile, design, print
           </div>
          </div>
@@ -448,7 +693,7 @@
           <div class="font-heading" style="font-weight:700; font-size:16px;">
            Créatif
           </div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5);">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65);">
            Des designs uniques
           </div>
          </div>
@@ -461,12 +706,12 @@
    <div class="section-divider" style="max-width:1200px; margin:0 auto;"></div><!-- Services Section -->
    <section id="services" style="padding:100px 24px;">
     <div style="max-width:1200px; margin:0 auto;">
-     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent2); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">02 — Services</span>
+     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent2); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">02 â€” Services</span>
       <h2 class="font-heading" style="font-size:clamp(32px,5vw,52px); font-weight:800; margin-top:12px; line-height:1.15;">Ce que je <span class="text-gradient">propose</span></h2>
      </div>
      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
   
-  <div class="glow-card reveal delay-2" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
+  <div class="glow-card reveal delay-2 service-card" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
     <div style="width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
       <i data-lucide="smartphone" style="width:28px;height:28px;color:white; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));"></i>
     </div>
@@ -474,7 +719,7 @@
     <p style="font-size:15px; line-height:1.7; color:white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Sites vitrines, e-commerce et plateformes web sur-mesure, rapides et optimisés SEO.</p>
   </div>
 
-  <div class="glow-card reveal delay-2" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
+  <div class="glow-card reveal delay-2 service-card" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
     <div style="width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
       <i data-lucide="smartphone" style="width:28px;height:28px;color:white; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));"></i>
     </div>
@@ -482,7 +727,7 @@
     <p style="font-size:15px; line-height:1.7; color:white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Applications iOS et Android performantes avec une expérience utilisateur soignée.</p>
   </div>
 
-  <div class="glow-card reveal delay-3" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
+  <div class="glow-card reveal delay-3 service-card" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
     <div style="width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
       <i data-lucide="monitor" style="width:28px;height:28px;color:white; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));"></i>
     </div>
@@ -490,7 +735,7 @@
     <p style="font-size:15px; line-height:1.7; color:white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Logiciels desktop et solutions métier adaptées aux besoins spécifiques de votre activité.</p>
   </div>
 
-  <div class="glow-card reveal delay-4" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
+  <div class="glow-card reveal delay-4 service-card" style="padding:36px; background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1);">
     <div style="width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
       <i data-lucide="palette" style="width:28px;height:28px;color:white; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));"></i>
     </div>
@@ -499,11 +744,12 @@
   </div>
 
 </div>
+   </div>
    </section>
    <div class="section-divider" style="max-width:1200px; margin:0 auto;"></div><!-- Skills Section -->
    <section id="skills" style="padding:100px 24px;">
     <div style="max-width:1200px; margin:0 auto;">
-     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">03 — Compétences</span>
+     <div class="reveal" style="margin-bottom:60px;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">03 â€” Compétences</span>
       <h2 class="font-heading" style="font-size:clamp(32px,5vw,52px); font-weight:800; margin-top:12px; line-height:1.15;">Mes <span class="text-gradient">compétences</span></h2>
      </div>
      <div style="display:grid; grid-template-columns:1fr; gap:48px;" class="md:grid-cols-2">
@@ -609,7 +855,7 @@
 <section id="projects" style="padding:100px 24px;">
   <div style="max-width:1200px; margin:0 auto;">
     <div class="reveal" style="margin-bottom:60px;">
-      <span style="color:var(--accent2); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">04 — Projets</span>
+      <span style="color:var(--accent2); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">04 â€” Projets</span>
       <h2 class="font-heading" style="font-size:clamp(32px,5vw,52px); font-weight:800; margin-top:12px; line-height:1.15;">Travaux <span class="text-gradient">récents</span></h2>
     </div>
     
@@ -617,7 +863,7 @@
       
       <div class="glow-card reveal delay-1" style="overflow:hidden;">
         <div style="height:220px; background-image: url('https://cdn.dribbble.com/userupload/42976029/file/original-b22b8127e5c31088d03fbd95cd0fc2f7.png?resize=752x&vertical=center'); background-size: cover; background-position: center; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-          <div style="position:absolute;inset:0;(7, 7, 46, 0.5);"></div>
+          <div style="position:absolute;inset:0; background:linear-gradient(180deg, rgba(10,10,15,0.15) 0%, rgba(10,10,15,0.75) 100%);"></div>
           <i data-lucide="globe" style="width:60px;height:60px;color:rgba(255,255,255,0.8); z-index: 1;"></i>
         </div>
         <div style="padding:28px;">
@@ -626,13 +872,13 @@
             <span style="padding:4px 12px; border-radius:20px; background:rgba(0,206,201,0.15); font-size:12px; color:var(--accent2);">Node.js</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">Plateforme E-commerce</h3>
-          <p style="font-size:14px; color:rgba(232,230,240,0.5); line-height:1.6;">Solution e-commerce complète avec paiement intégré et dashboard admin.</p>
+          <p style="font-size:14px; color:rgba(18,18,28,0.65); line-height:1.6;">Solution e-commerce complète avec paiement intégré et dashboard admin.</p>
         </div>
       </div>
 
       <div class="glow-card reveal delay-2" style="overflow:hidden;">
         <div style="height:220px; background-image: url('https://cdn.dribbble.com/userupload/45697645/file/d0ffc8dc1950872ba8b8d765e9c3be5d.png?resize=752x&vertical=center'); background-size: cover; background-position: center; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-          <div style="position:absolute;inset:0; "></div>
+          <div style="position:absolute;inset:0; background:linear-gradient(180deg, rgba(10,10,15,0.15) 0%, rgba(10,10,15,0.75) 100%);"></div>
           <i data-lucide="smartphone" style="width:60px;height:60px;color:rgba(221, 216, 216, 0.8); z-index: 1;"></i>
         </div>
         <div style="padding:28px;">
@@ -641,35 +887,34 @@
             <span style="padding:4px 12px; border-radius:20px; background:rgba(108,92,231,0.15); font-size:12px; color:var(--accent);">Firebase</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">App de Livraison</h3>
-          <p style="font-size:14px; color:rgba(232,230,240,0.5); line-height:1.6;">Application mobile de livraison avec suivi en temps réel et notifications push.</p>
+          <p style="font-size:14px; color:rgba(18,18,28,0.65); line-height:1.6;">Application mobile de livraison avec suivi en temps réel et notifications push.</p>
         </div>
       </div>
 
       <div class="glow-card reveal delay-3" style="overflow:hidden;">
         <div style="height:220px; background-image: url('https://www.creativeboom.com/upload/articles/5c/5c3e6d0675afd3579ef09ef5cf75ecb9258dc1fc_1280.jpg'); background-size: cover; background-position: center; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-          <div style="position:absolute;inset:0;"></div>
+          <div style="position:absolute;inset:0; background:linear-gradient(180deg, rgba(10,10,15,0.15) 0%, rgba(10,10,15,0.75) 100%);"></div>
           <i data-lucide="image" style="width:60px;height:60px;color:rgba(255,255,255,0.8); z-index: 1;"></i>
         </div>
         <div style="padding:28px;">
           <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-            <span style="padding:4px 12px; border-radius:20px; background:rgba(253,121,168,0.15); font-size:12px; color:#fd79a8;">Photoshop</span> 
+            <span style="padding:4px 12px; border-radius:20px; background:rgba(194,24,91,0.10); font-size:12px; color:#a4133f;">Photoshop</span> 
             <span style="padding:4px 12px; border-radius:20px; background:rgba(108,92,231,0.15); font-size:12px; color:var(--accent);">Illustrator</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">Campagne Visuelle</h3>
-          <p style="font-size:14px; color:rgba(232,230,240,0.5); line-height:1.6;">Série d'affiches et invitations pour événements corporatifs et culturels.</p>
+          <p style="font-size:14px; color:rgba(18,18,28,0.65); line-height:1.6;">Série d'affiches et invitations pour événements corporatifs et culturels.</p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-   </section>
    <div class="section-divider" style="max-width:1200px; margin:0 auto;"></div><!-- Contact Section -->
    <section id="contact" style="padding:100px 24px;">
     <div style="max-width:1200px; margin:0 auto;">
-     <div class="reveal" style="margin-bottom:60px; text-align:center;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">05 — Contact</span>
+     <div class="reveal" style="margin-bottom:60px; text-align:center;"><span style="color:var(--accent); font-size:14px; letter-spacing:3px; text-transform:uppercase; font-weight:600;">05 â€” Contact</span>
       <h2 class="font-heading" style="font-size:clamp(32px,5vw,52px); font-weight:800; margin-top:12px; line-height:1.15;">Travaillons <span class="text-gradient">ensemble</span></h2>
-      <p style="font-size:17px; color:rgba(232,230,240,0.6); margin-top:16px; max-width:500px; margin-left:auto; margin-right:auto;">Vous avez un projet en tête ? N'hésitez pas à me contacter.</p>
+      <p style="font-size:17px; color:rgba(18,18,28,0.62); margin-top:16px; max-width:500px; margin-left:auto; margin-right:auto;">Vous avez un projet en tête ? N'hésitez pas à me contacter.</p>
      </div>
      <div style="display:grid; grid-template-columns:1fr; gap:40px; max-width:900px; margin:0 auto;" class="md:grid-cols-2">
       <div class="reveal-left delay-1">
@@ -677,7 +922,7 @@
          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent),rgba(108,92,231,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="mail" style="width:24px;height:24px;color:white;"></i>
          </div>
          <div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5); margin-bottom:4px;">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-bottom:4px;">
            Email
           </div>
           <div id="contact-email" style="font-size:15px; font-weight:600;">
@@ -687,7 +932,7 @@
          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent2),rgba(0,206,201,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="message-circle" style="width:24px;height:24px;color:white;"></i>
          </div>
          <div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5); margin-bottom:4px;">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-bottom:4px;">
            WhatsApp
           </div>
           <div id="contact-phone" style="font-size:15px; font-weight:600;">
@@ -698,7 +943,7 @@
          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="map-pin" style="width:24px;height:24px;color:white;"></i>
          </div>
          <div>
-          <div style="font-size:13px; color:rgba(232,230,240,0.5); margin-bottom:4px;">
+          <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-bottom:4px;">
            Localisation
           </div>
           <div style="font-size:15px; font-weight:600;">
@@ -709,13 +954,68 @@
        </div>
       </div>
       <div class="reveal-right delay-2">
-       <form id="contact-form" style="display:flex; flex-direction:column; gap:16px;">
-        <div><label for="cf-name" style="font-size:13px; color:rgba(232,230,240,0.5); display:block; margin-bottom:6px;">Votre nom</label> <input id="cf-name" type="text" required style="width:100%; padding:14px 18px; border-radius:12px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); color:var(--text); font-size:15px; outline:none; transition:border-color 0.3s; font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='rgba(108,92,231,0.15)'">
+       <form id="contact-form" novalidate style="display:flex; flex-direction:column; gap:16px;">
+        <!-- Pot de miel anti-spam : invisible pour les humains -->
+        <div class="hp" aria-hidden="true">
+         <label for="cf-website">Ne pas remplir</label>
+         <input id="cf-website" type="text" name="website" tabindex="-1" autocomplete="off">
         </div>
-        <div><label for="cf-email" style="font-size:13px; color:rgba(232,230,240,0.5); display:block; margin-bottom:6px;">Votre email</label> <input id="cf-email" type="email" required style="width:100%; padding:14px 18px; border-radius:12px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); color:var(--text); font-size:15px; outline:none; transition:border-color 0.3s; font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='rgba(108,92,231,0.15)'">
+
+        <div>
+         <label for="cf-name" style="font-size:13px; color:rgba(18,18,28,0.65); display:block; margin-bottom:6px;">Votre nom <span style="color:#0f766e;">*</span></label>
+         <input id="cf-name" name="name" type="text" class="field" placeholder="Ex. Jean Kabamba" maxlength="80" autocomplete="name" required>
+         <div class="field-error" id="err-name">Merci d'indiquer votre nom.</div>
         </div>
-        <div><label for="cf-message" style="font-size:13px; color:rgba(232,230,240,0.5); display:block; margin-bottom:6px;">Message</label> <textarea id="cf-message" rows="4" required style="width:100%; padding:14px 18px; border-radius:12px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); color:var(--text); font-size:15px; outline:none; transition:border-color 0.3s; resize:vertical; font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='rgba(108,92,231,0.15)'"></textarea>
-        </div><button type="submit" class="btn-gradient magnetic" style="padding:16px 36px; border-radius:60px; color:white; border:none; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; font-family:inherit;"> Envoyer le message <i data-lucide="send" style="width:18px;height:18px;"></i> </button>
+
+        <div>
+         <label for="cf-email" style="font-size:13px; color:rgba(18,18,28,0.65); display:block; margin-bottom:6px;">Votre email <span style="color:#0f766e;">*</span></label>
+         <input id="cf-email" name="email" type="email" class="field" placeholder="jean.kabamba@exemple.com" maxlength="120" autocomplete="email" required>
+         <div class="field-error" id="err-email">Merci d'indiquer une adresse email valide.</div>
+        </div>
+
+        <div>
+         <label for="cf-phone" style="font-size:13px; color:rgba(18,18,28,0.65); display:block; margin-bottom:6px;">Téléphone / WhatsApp <span style="opacity:0.65;">(optionnel)</span></label>
+         <input id="cf-phone" name="phone" type="tel" class="field" placeholder="+243 8XX XXX XXX" maxlength="30" autocomplete="tel" inputmode="tel">
+        </div>
+
+        <div>
+         <label for="cf-type" style="font-size:13px; color:rgba(18,18,28,0.65); display:block; margin-bottom:6px;">Type de projet <span style="color:#0f766e;">*</span></label>
+         <select id="cf-type" name="type" class="field" required>
+          <option value="" selected disabled>Sélectionnez une prestationâ€¦</option>
+          <option>Site web vitrine</option>
+          <option>Site e-commerce / boutique en ligne</option>
+          <option>Application mobile</option>
+          <option>Logiciel / application métier</option>
+          <option>Design UI/UX</option>
+          <option>Affiches / Invitations / Print</option>
+          <option>Identité visuelle / Branding</option>
+          <option>Autre demande</option>
+         </select>
+         <div class="field-error" id="err-type">Merci de choisir le type de projet.</div>
+        </div>
+
+        <div>
+         <label for="cf-message" style="font-size:13px; color:rgba(18,18,28,0.65); display:block; margin-bottom:6px;">Votre message <span style="color:#0f766e;">*</span></label>
+         <textarea id="cf-message" name="message" rows="4" class="field" placeholder="Décrivez votre projet, vos délais et votre budgetâ€¦" maxlength="1200" required></textarea>
+         <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-top:5px;">
+          <div class="field-error" id="err-message" style="margin-top:0;">Merci d'écrire votre message.</div>
+          <div id="char-count" style="font-size:12px; color:rgba(18,18,28,0.62); margin-left:auto; white-space:nowrap;">0 / 1200</div>
+         </div>
+        </div>
+
+        <button type="submit" id="cf-submit" class="btn-gradient magnetic" style="padding:16px 36px; border-radius:60px; color:white; border:none; font-size:16px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; font-family:inherit; width:100%;">
+         <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
+         <span id="cf-submit-text">Envoyer via WhatsApp</span>
+        </button>
+
+        <p style="font-size:12px; color:rgba(18,18,28,0.62); text-align:center; margin:0; line-height:1.6;">
+         Vos informations servent uniquement à vous répondre. Rien n'est stocké sur ce site.
+        </p>
+
+        <div class="wa-fallback" id="wa-fallback">
+         <div style="margin-bottom:6px;">Si WhatsApp ne s'est pas ouvert automatiquement, cliquez ici :</div>
+         <a id="wa-fallback-link" href="#" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">Ouvrir la conversation WhatsApp</a>
+        </div>
        </form>
       </div>
      </div>
@@ -726,99 +1026,14 @@
      <div class="font-heading" style="font-size:28px; font-weight:800; margin-bottom:16px;">
       L<span class="text-gradient">.</span>E<span class="text-gradient">.</span>M
      </div>
-     <p id="footer-text" style="font-size:14px; color:rgba(232,230,240,0.4);">Leo Monzia</p>
-     <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;"><a href="mailto:lionelewene7@gmail.com" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a> <a href="https://github.com" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="github" style="width:18px;height:18px;"></i> </a>
+     <p id="footer-text" style="font-size:14px; color:rgba(18,18,28,0.62);">Leo Monzia</p>
+     <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;"><a href="mailto:lionelewene7@gmail.com" aria-label="Écrire par email" title="Écrire par email" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a> <a href="https://github.com/lionelewene7-star" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;" aria-label="GitHub" title="GitHub"> <i data-lucide="github" style="width:18px;height:18px;"></i> </a>
      </div>
     </div>
    </footer>
   </div><!-- end app-wrapper --> <!-- Toast notification -->
   <div id="toast" class="toast"></div>
   <script>
-    // ========== DEFAULT CONFIG ==========
-    const defaultConfig = {
-      background_color: '#0a0a0f',
-      surface_color: '#14141f',
-      text_color: '#e8e6f0',
-      accent_color: '#6c5ce7',
-      accent2_color: '#00cec9',
-      font_family: 'Syne',
-      font_size: 16,
-      hero_title: 'Lionel Ewene Monzia',
-      hero_subtitle: 'Développeur Designer',
-      about_text: 'Je suis Lionel Ewene Monzia, un développeur designer polyvalent et perfectionniste. Ma passion est de transformer des idées en expériences numériques exceptionnelles. Je crée des sites web, des applications web et mobiles, des logiciels, ainsi que toutes sortes d\'affiches et invitations. Chaque projet est une opportunité de repousser les limites de la créativité et de la technique.',
-      contact_email: 'lionelewene7@gmail.com',
-      contact_phone: '+243 85 28 67 852'
-    };
-
-    // ========== ELEMENT SDK INIT ==========
-    function applyConfig(config) {
-      const root = document.documentElement;
-      root.style.setProperty('--bg', config.background_color || defaultConfig.background_color);
-      root.style.setProperty('--surface', config.surface_color || defaultConfig.surface_color);
-      root.style.setProperty('--text', config.text_color || defaultConfig.text_color);
-      root.style.setProperty('--accent', config.accent_color || defaultConfig.accent_color);
-      root.style.setProperty('--accent2', config.accent2_color || defaultConfig.accent2_color);
-
-      const font = config.font_family || defaultConfig.font_family;
-      const baseSize = config.font_size || defaultConfig.font_size;
-
-      document.querySelectorAll('.font-heading').forEach(el => {
-        el.style.fontFamily = `${font}, sans-serif`;
-      });
-      document.body.style.fontSize = `${baseSize}px`;
-
-      const heroName = document.getElementById('hero-name');
-      if (heroName) {
-        const title = config.hero_title || defaultConfig.hero_title;
-        const parts = title.split(' ');
-        if (parts.length >= 3) {
-          heroName.innerHTML = parts.slice(0,2).join(' ') + '<br>' + parts.slice(2).join(' ') + '<span class="text-gradient">.</span>';
-        } else {
-          heroName.innerHTML = title + '<span class="text-gradient">.</span>';
-        }
-      }
-
-      const aboutText = document.getElementById('about-text');
-      if (aboutText) aboutText.textContent = config.about_text || defaultConfig.about_text;
-
-      const contactEmail = document.getElementById('contact-email');
-      if (contactEmail) contactEmail.textContent = config.contact_email || defaultConfig.contact_email;
-
-      const contactPhone = document.getElementById('contact-phone');
-      if (contactPhone) contactPhone.textContent = config.contact_phone || defaultConfig.contact_phone;
-    }
-
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange: async (config) => { applyConfig(config); },
-        mapToCapabilities: (config) => ({
-          recolorables: [
-            { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-            { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-            { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-            { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
-            { get: () => config.accent2_color || defaultConfig.accent2_color, set: (v) => { config.accent2_color = v; window.elementSdk.setConfig({ accent2_color: v }); } }
-          ],
-          borderables: [],
-          fontEditable: {
-            get: () => config.font_family || defaultConfig.font_family,
-            set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
-          },
-          fontSizeable: {
-            get: () => config.font_size || defaultConfig.font_size,
-            set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
-          }
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ['hero_title', config.hero_title || defaultConfig.hero_title],
-          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
-          ['about_text', config.about_text || defaultConfig.about_text],
-          ['contact_email', config.contact_email || defaultConfig.contact_email],
-          ['contact_phone', config.contact_phone || defaultConfig.contact_phone]
-        ])
-      });
-    }
 
     // ========== PARTICLES ANIMATION ==========
     const canvas = document.getElementById('particles');
@@ -875,7 +1090,7 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(108, 92, 231, ${0.08 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(108, 92, 231, ${0.16 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -951,18 +1166,31 @@
 
     // ========== NAV SCROLL EFFECT ==========
     const nav = document.getElementById('main-nav');
-    const wrapper = document.getElementById('app-wrapper');
-    wrapper.addEventListener('scroll', () => {
-      if (wrapper.scrollTop > 60) {
-        nav.style.background = 'rgba(10,10,15,0.85)';
+    function onScroll() {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(246,246,251,0.88)';
         nav.style.backdropFilter = 'blur(20px)';
         nav.style.webkitBackdropFilter = 'blur(20px)';
+        nav.style.boxShadow = '0 1px 0 rgba(18,18,28,0.06)';
       } else {
         nav.style.background = 'transparent';
         nav.style.backdropFilter = 'none';
         nav.style.webkitBackdropFilter = 'none';
+        nav.style.boxShadow = 'none';
       }
-    });
+
+      // Mise en évidence du lien de navigation actif
+      const y = window.scrollY + 140;
+      let active = 'hero';
+      document.querySelectorAll('section[id]').forEach(sec => {
+        if (sec.offsetTop <= y) active = sec.id;
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + active);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     // ========== MOBILE MENU ==========
     const mobileMenu = document.getElementById('mobile-menu');
@@ -972,26 +1200,148 @@
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
 
-    // ========== SMOOTH SCROLL (within wrapper) ==========
+    // ========== SMOOTH SCROLL (document) ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        const target = document.querySelector(href);
+        if (!target) return;
         e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        history.replaceState(null, '', href);
       });
     });
 
-    // ========== CONTACT FORM ==========
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const toast = document.getElementById('toast');
-      toast.innerHTML = '<div style="display:flex;align-items:center;gap:10px;"><i data-lucide="check-circle" style="width:20px;height:20px;color:var(--accent2);"></i> Message envoyé avec succès !</div>';
+    // ========== CONTACT FORM -> WHATSAPP ==========
+    // Numéro au format international, sans « + » ni espaces.
+    const WHATSAPP_NUMBER = '243852867852';
+    const WA_LINK = 'https://wa.me/' + WHATSAPP_NUMBER;
+
+    const form      = document.getElementById('contact-form');
+    const toast     = document.getElementById('toast');
+    const submitBtn = document.getElementById('cf-submit');
+    const submitTxt = document.getElementById('cf-submit-text');
+    const fallback  = document.getElementById('wa-fallback');
+    const fallbackLink = document.getElementById('wa-fallback-link');
+    const charCount = document.getElementById('char-count');
+
+    // --- Compteur de caractères ---
+    const messageEl = document.getElementById('cf-message');
+    messageEl.addEventListener('input', () => {
+      charCount.textContent = messageEl.value.length + ' / 1200';
+    });
+
+    // --- Validation d'un champ ---
+    function validateField(id, errId, test) {
+      const el  = document.getElementById(id);
+      const err = document.getElementById(errId);
+      const ok  = test(el.value.trim());
+      el.classList.toggle('invalid', !ok);
+      err.classList.toggle('show', !ok);
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      return ok;
+    }
+
+    // Retirer l'erreur dès que l'utilisateur corrige
+    ['cf-name', 'cf-email', 'cf-type', 'cf-message'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input',  () => { el.classList.remove('invalid'); document.getElementById('err-' + id.slice(3)).classList.remove('show'); });
+      el.addEventListener('change', () => { el.classList.remove('invalid'); document.getElementById('err-' + id.slice(3)).classList.remove('show'); });
+    });
+
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function showToast(icon, html, duration) {
+      toast.innerHTML = '<div style="display:flex;align-items:flex-start;gap:10px;">' +
+        '<i data-lucide="' + icon + '" style="width:20px;height:20px;color:var(--accent2);flex-shrink:0;margin-top:1px;"></i>' +
+        '<div>' + html + '</div></div>';
       toast.classList.add('show');
-      lucide.createIcons();
-      e.target.reset();
-      setTimeout(() => toast.classList.remove('show'), 3500);
+      if (window.lucide) lucide.createIcons();
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => toast.classList.remove('show'), duration);
+    }
+
+    // --- Construction du message WhatsApp ---
+    function buildMessage(d) {
+      const lines = [
+        '\u{1F4E7} *NOUVELLE DEMANDE DEPUIS LE PORTFOLIO*',
+        '\u{1F4E5} ' + new Date().toLocaleString('fr-FR', { dateStyle: 'medium', timeStyle: 'short' }),
+        '',
+        '\u{1F464} *Nom* : ' + d.name,
+        '\u{2709}\u{FE0F} *Email* : ' + d.email
+      ];
+      if (d.phone) lines.push('\u{1F4F1} *Téléphone* : ' + d.phone);
+      lines.push('\u{1F3AF} *Type de projet* : ' + d.type);
+      lines.push('', '\u{1F4AC} *Message* :', d.message);
+      lines.push('', '------------------------------', 'Envoyé depuis lionelewene7-star.github.io');
+      return lines.join('\n');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // 1. Pot de miel : si rempli, c'est un robot -> on fait semblant.
+      const honeypot = document.getElementById('cf-website');
+      if (honeypot && honeypot.value !== '') {
+        showToast('check-circle', 'Merci, votre message a bien été pris en compte.', 3500);
+        form.reset();
+        charCount.textContent = '0 / 1200';
+        return;
+      }
+
+      // 2. Validation
+      const vName = validateField('cf-name',    'err-name',    v => v.length >= 2);
+      const vMail = validateField('cf-email',   'err-email',   v => EMAIL_RE.test(v));
+      const vType = validateField('cf-type',    'err-type',    v => v.length > 0);
+      const vMsg  = validateField('cf-message', 'err-message', v => v.length >= 10);
+
+      if (!(vName && vMail && vType && vMsg)) {
+        const firstBad = form.querySelector('.invalid');
+        if (firstBad) firstBad.focus();
+        showToast('alert-circle', '<div>Merci de corriger les champs signalés en rouge.</div>', 4000);
+        return;
+      }
+
+      // 3. Message
+      const data = {
+        name:    document.getElementById('cf-name').value.trim(),
+        email:   document.getElementById('cf-email').value.trim(),
+        phone:   document.getElementById('cf-phone').value.trim(),
+        type:    document.getElementById('cf-type').value,
+        message: document.getElementById('cf-message').value.trim()
+      };
+      const url = WA_LINK + '?text=' + encodeURIComponent(buildMessage(data));
+
+      // 4. Ouverture de WhatsApp
+      submitBtn.classList.add('btn-sending');
+      submitTxt.textContent = 'Ouverture de WhatsAppâ€¦';
+      fallback.classList.remove('show');
+      fallbackLink.href = url;
+
+      let opened = null;
+      try { opened = window.open(url, '_blank', 'noopener,noreferrer'); } catch (err) { opened = null; }
+      // Certains navigateurs bloquent le pop-up : on montre le lien de secours.
+      if (!opened) fallback.classList.add('show');
+
+      // 5. Confirmation
+      setTimeout(() => {
+        submitBtn.classList.remove('btn-sending');
+        submitTxt.textContent = 'Envoyer via WhatsApp';
+        showToast('message-circle',
+          '<div style="font-weight:600;margin-bottom:2px;">Votre message est prêt !</div>' +
+          '<div style="font-size:13px;opacity:0.8;">Appuyez sur <b>Envoyer</b> dans WhatsApp pour me le transmettre.</div>',
+          7000);
+      }, 350);
+
+      form.reset();
+      charCount.textContent = '0 / 1200';
+      ['cf-name','cf-email','cf-type','cf-message'].forEach(id => {
+        document.getElementById(id).classList.remove('invalid');
+        document.getElementById('err-' + id.slice(3)).classList.remove('show');
+      });
     });
 
     // ========== MAGNETIC EFFECT ==========
@@ -1020,5 +1370,5 @@
     // Initialize Lucide icons
     lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ddca44b64f11b23',t:'MTc3Mzc1NzI2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ </body>
 </html>

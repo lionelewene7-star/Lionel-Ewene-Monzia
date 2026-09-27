@@ -1,0 +1,20 @@
+# Fichiers temporaires / système
+desktop.ini
+Thumbs.db
+.DS_Store
+*.lnk
+
+# Captures d'écran et brouillons non utilisés
+screenshot-*.png
+box.jpg
+box.webp
+th.jpg
+log.jpeg
+
+# Dépendances (si un jour un bundler est ajouté)
+node_modules/
+
+# Fichiers de build
+dist/
+.DS_Store
+*.log
