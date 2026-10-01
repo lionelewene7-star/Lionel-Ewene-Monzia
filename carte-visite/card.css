@@ -1,0 +1,248 @@
+/* ============================================================
+   Carte de visite — Lionel Ewene Monzia
+   Format : 85 x 55 mm (norme française ISO 7810 / 3,5" x 2")
+
+   Palette et polices identiques à celles du portfolio :
+     Syne (titres) + DM Sans (textes)
+     violet #6c5ce7  /  vert-bleu #0f766e
+   ============================================================ */
+
+:root {
+  --accent:  #6c5ce7;
+  --accent2: #0f766e;
+  --text:    #14141f;
+  --muted:   #5a5a6e;
+  --bg:      #f6f6fb;
+  --surface: #ffffff;
+  --gradient: linear-gradient(120deg, var(--accent) 0%, #8b5cf6 45%, var(--accent2) 100%);
+
+  --sans: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --head: 'Syne', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #dfe1ea;
+  font-family: var(--sans);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------- La carte ---------------- */
+
+.card {
+  position: relative;
+  width: 85mm;
+  height: 55mm;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 2mm 6mm rgba(20, 20, 31, .18);
+  display: flex;
+  flex-direction: column;
+}
+
+/* halo coloré discret, dans l'esprit des "orbes" du site */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -20mm; right: -14mm;
+  width: 46mm; height: 46mm;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 92, 231, .16), rgba(15, 118, 110, 0) 70%);
+  pointer-events: none;
+}
+
+/* ---------------- RECTO ---------------- */
+
+.recto { padding: 5.5mm 6mm; }
+
+.recto-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+  flex: 1;
+}
+
+/* portrait circulaire avec anneau dégradé */
+.photo {
+  position: relative;
+  width: 24mm; height: 24mm;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--gradient);
+  padding: .7mm;
+}
+.photo img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.identity { flex: 1; min-width: 0; }
+
+.name {
+  font-family: var(--head);
+  font-weight: 800;
+  font-size: 13.2pt;
+  line-height: .98;
+  letter-spacing: -.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+.name .last {
+  display: block;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.role {
+  margin: 1.6mm 0 0;
+  font-size: 6.6pt;
+  font-weight: 500;
+  line-height: 1.32;
+  color: var(--muted);
+  letter-spacing: .005em;
+}
+
+/* pied du recto : filet dégradé + liste des prestations */
+.recto-foot { position: relative; margin-top: 3mm; }
+
+.bar { height: 1.1mm; border-radius: 1mm; background: var(--gradient); }
+
+.services {
+  margin: 1.9mm 0 0;
+  font-size: 5.3pt;
+  font-weight: 700;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.services span { opacity: .38; margin: 0 .9mm; }
+
+/* ---------------- VERSO ---------------- */
+
+.verso { padding: 0; }
+
+/* bandeau dégradé plein bord en tête du verso */
+.verso-band {
+  height: 2.4mm;
+  background: var(--gradient);
+  flex: 0 0 auto;
+}
+
+.verso-body {
+  flex: 1;
+  padding: 3.3mm 6mm 3.6mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.verso-label {
+  font-family: var(--head);
+  font-size: 6pt;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 2.2mm;
+}
+
+.contact { display: flex; flex-direction: column; gap: 1.5mm; }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 2.1mm;
+  font-size: 6.15pt;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+}
+.row .ic {
+  width: 2.7mm; height: 2.7mm;
+  flex: 0 0 auto;
+  display: block;
+  color: var(--accent);
+}
+.row.wa .ic  { color: var(--accent2); }
+.row .k {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 5.15pt;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  flex: 0 0 10.5mm;
+}
+.row .v { font-weight: 500; }
+.row .v.url {
+  font-weight: 700;
+  letter-spacing: -.005em;
+  word-break: break-all;
+}
+
+/* pied du verso : lieu + les deux QR codes */
+.verso-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3mm;
+  padding-top: 2.4mm;
+  border-top: .2mm solid rgba(20, 20, 31, .09);
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  gap: 1.4mm;
+  font-size: 5.5pt;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.28;
+}
+.place .ic { width: 2.5mm; height: 2.5mm; color: var(--accent); flex: 0 0 auto; }
+
+/* les deux QR, côte à côte */
+.qrset { display: flex; gap: 3.2mm; }
+
+.qritem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7mm;
+  text-decoration: none;
+}
+
+.qritem img {
+  width: 13.6mm; height: 13.6mm;
+  display: block;
+  border: .35mm solid rgba(20, 20, 31, .1);
+  border-radius: 1mm;
+  background: #fff;
+}
+
+.qritem .cap {
+  font-size: 4.4pt;
+  font-weight: 700;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1;
+  white-space: nowrap;
+}
+.qritem.portfolio .cap { color: var(--accent); }
+.qritem.whatsapp  .cap { color: var(--accent2); }
+
+/* ---------------- Icônes ---------------- */
+.ic path, .ic circle, .ic rect { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic.solid path, .ic.solid circle { fill: currentColor; stroke: none; }
