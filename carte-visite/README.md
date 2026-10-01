@@ -1,9 +1,9 @@
-﻿# Carte de visite — Lionel Ewene Monzia
+# Carte de visite — Lionel Ewene Monzia
 
 Format **85 × 55 mm** (norme française ISO 7810 — 3,5″ × 2″).
 Recto et verso. **Sans photo** — un monogramme `L.E.M` fait office d'emblème.
 
-Style **futuriste** : fond nuit, lueurs néon violet/cyan, grille technique,
+Style **futuriste** : fond bleu clair, halos néon violet/cyan, grille technique,
 repères HUD aux quatre coins.
 
 ## Fichiers à utiliser
@@ -30,11 +30,11 @@ Découpez le long des pointillés cyan, puis assemblez un recto et un verso dos 
 
 ## Choix du papier
 
-Le fond est presque noir. Sur une imprimante domestique, l'encre est très chargée :
+Fond clair : imprime normalement, sans contrainte particulière.
 
-- **350 g/m² noir mat** + **vernis sélectif** sur le monogramme, le nom et le
-  filet dégradé → rendu premium, sans couche noire visible.
-- À défaut : **350 g/m² blanc** avec le PDF tel quel — le design fonctionne aussi.
+- **350 g/m² mat** pour un rendu pro, avec un **vernis sélectif** sur le monogramme,
+  le nom et le filet dégradé.
+- À défaut, **300 g/m²** courant conviendra très bien.
 
 Évitez le **vernis brillant** sur toute la carte : il reflète la lumière et rend
 la lecture des QR codes plus difficile.
@@ -79,12 +79,21 @@ il faut aussi refaire `assets/qr-portfolio.png` et `assets/qr-whatsapp.png`.
 
 ## Palette
 
+Fond **bleu clair très doux** (`#f2f7fd`), avec trois halos : violet en haut à gauche,
+bleu clair en haut à droite, vert-bleu en bas à droite.
+
 | Rôle | Couleur |
 |---|---|
-| Fond | `#07070f` → `#110f26` |
-| Néon violet | `#7c5cff` |
-| Néon cyan | `#22d3ee` |
-| Texte | `#f2f3fa` |
-| Secondaire | `#a2a2c0` |
+| Fond | `#f2f7fd` |
+| Violet (accent du site) | `#6c5ce7` → `#4c3fd0` pour le texte |
+| Bleu clair | `#38bdf8` → `#0369a1` pour le texte |
+| Vert-bleu (accent 2 du site) | `#0f766e` → `#0a5c56` pour le texte |
+
+Il y a deux dégradés : `--neon` (lumineux, pour les barres, la bandeau et les
+bordures) et `--ink-grad` (assombri, pour le nom et le monogramme). Le bleu clair
+serait illisible en texte sur fond clair, d'où la séparation.
+
+Tous les textes sont vérifiés **au-dessus du seuil WCAG AA** (4,5:1) sur le
+dégradé de fond le plus défavorable : le moins bon contraste mesuré est 5,5:1.
 
 Polices : **Space Grotesk** (nom), **JetBrains Mono** (micro-libellés), **Inter** (contacts).

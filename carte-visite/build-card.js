@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Génère la carte de visite (recto + verso) en HTML statique.
 
    Tout le contenu est dans l'objet INFO ci-dessous : modifiez-le
@@ -130,28 +130,28 @@ ${extra}
    ============================================================ */
 const sheetCss = `
 @page { size: A4 portrait; margin: 10mm; }
-body { padding: 10mm; background: #14161f; }
+body { padding: 10mm; background: #dfe1ea; }
 .sheet { width: 190mm; margin: 0 auto; }
 .band-label {
   font-family: 'JetBrains Mono', monospace; font-size: 7pt; font-weight: 700;
-  letter-spacing: .2em; text-transform: uppercase; color: #9a9ac0;
+  letter-spacing: .2em; text-transform: uppercase; color: #55556e;
   margin: 0 0 2.2mm;
 }
 .band-label + .grid { margin-bottom: 7mm; }
 .grid { display: grid; grid-template-columns: repeat(2, 85mm); gap: 3mm; }
-.slot { position: relative; outline: .2mm dashed rgba(34,211,238,.5); }
+.slot { position: relative; outline: .2mm dashed rgba(108,92,231,.6); }
 .slot .tag {
   position: absolute; top: -1mm; left: 0; transform: translateY(-100%);
   font-family: 'JetBrains Mono', monospace; font-size: 5.6pt; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase; color: #8a8aa8;
+  letter-spacing: .12em; text-transform: uppercase; color: #66667f;
 }
 .hint {
   margin-top: 4mm; padding: 3mm 4mm;
-  background: #1b1d2a; border-radius: 2mm;
-  border-left: .8mm solid #7c5cff;
-  font-size: 8.5pt; line-height: 1.5; color: #c6c6dc;
+  background: #fff; border-radius: 2mm;
+  border-left: .8mm solid #6c5ce7;
+  font-size: 8.5pt; line-height: 1.5; color: #3a3a4a;
 }
-.hint b { color: #fff; }
+.hint b { color: #14141f; }
 `;
 
 const slot = (mark, card) =>
@@ -179,8 +179,8 @@ const indexHtml = head(sheetCss) + `
   </div>
   <div class="hint">
     <b>Imprimer :</b> <b>Ctrl + P</b> \u2192 <b>Enregistrer au format PDF</b> \u2192 A4 \u2192 marges
-    <b>Aucune</b> \u2192 cochez <b>Arri\u00e8re-plan graphique</b> (obligatoire, le fond est sombre).<br>
-    D\u00e9coupez le long des pointill\u00e9s cyan, puis assemblez recto + verso dos \u00e0 dos.
+    <b>Aucune</b> \u2192 cochez <b>Arri\u00e8re-plan graphique</b>.<br>
+    D\u00e9coupez le long des pointill\u00e9s violets, puis assemblez recto + verso dos \u00e0 dos.
   </div>
 </main>
 </body>
@@ -192,8 +192,8 @@ const indexHtml = head(sheetCss) + `
    ============================================================ */
 const duplexCss = `
 @page { size: 85mm 55mm; margin: 0; }
-body { background: #14161f; display: block; }
-.card { box-shadow: 0 0 4mm rgba(0,0,0,.6); break-after: page; page-break-after: always; }
+body { background: #dfe1ea; display: block; }
+.card { box-shadow: 0 2mm 6mm rgba(20,20,31,.16); break-after: page; page-break-after: always; }
 .card:last-child { break-after: auto; page-break-after: auto; }
 @media screen { body { display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm; justify-content: center; } }
 `;
