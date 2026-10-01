@@ -2,31 +2,35 @@
    Carte de visite — Lionel Ewene Monzia
    Format : 85 x 55 mm (norme française ISO 7810 / 3,5" x 2")
 
-   Palette et polices identiques à celles du portfolio :
-     Syne (titres) + DM Sans (textes)
-     violet #6c5ce7  /  vert-bleu #0f766e
+   Style : futuriste — fond nuit, lueurs néon, grille technique,
+   cadre HUD. Palette dérivée du portfolio (#6c5ce7 / #0f766e)
+   éclaircie pour fonctionner sur fond sombre.
    ============================================================ */
 
 :root {
-  --accent:  #6c5ce7;
-  --accent2: #0f766e;
-  --text:    #14141f;
-  --muted:   #5a5a6e;
-  --bg:      #f6f6fb;
-  --surface: #ffffff;
-  --gradient: linear-gradient(120deg, var(--accent) 0%, #8b5cf6 45%, var(--accent2) 100%);
+  --void:   #07070f;
+  --deep:   #0d0b1e;
+  --ink:    #f2f3fa;   /* texte principal          */
+  --dim:    #a2a2c0;   /* texte secondaire         */
+  --faint:  #6b6b8c;   /* micro-libellés mono      */
+  --violet: #7c5cff;   /* néon violet              */
+  --violet-lt: #b9a6ff;
+  --cyan:   #22d3ee;   /* néon cyan                */
+  --line:   rgba(255, 255, 255, .10);
 
-  --sans: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --head: 'Syne', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --neon: linear-gradient(115deg, var(--violet) 0%, #6d7bff 45%, var(--cyan) 100%);
+
+  --display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --body:    'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono:    'JetBrains Mono', 'Consolas', ui-monospace, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: #dfe1ea;
-  font-family: var(--sans);
-  color: var(--text);
+  background: #14161f;
+  font-family: var(--body);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   -webkit-font-smoothing: antialiased;
@@ -39,210 +43,257 @@ body {
   width: 85mm;
   height: 55mm;
   overflow: hidden;
-  background: var(--surface);
-  box-shadow: 0 2mm 6mm rgba(20, 20, 31, .18);
+  color: var(--ink);
   display: flex;
   flex-direction: column;
+
+  /* fond nuit + deux lueurs */
+  background:
+    radial-gradient(115% 85% at 6% 2%,   rgba(124, 92, 255, .40), transparent 56%),
+    radial-gradient(105% 80% at 104% 102%, rgba(34, 211, 238, .28), transparent 58%),
+    linear-gradient(152deg, #0a0918 0%, #110f26 46%, #05161a 100%);
+  box-shadow: 0 2mm 6mm rgba(0, 0, 0, .5);
 }
 
-/* halo coloré discret, dans l'esprit des "orbes" du site */
+/* grille technique */
 .card::before {
   content: '';
   position: absolute;
-  top: -20mm; right: -14mm;
-  width: 46mm; height: 46mm;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(108, 92, 231, .16), rgba(15, 118, 110, 0) 70%);
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg,  rgba(255, 255, 255, .028) 0 .16mm, transparent .16mm 3.6mm),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .028) 0 .16mm, transparent .16mm 3.6mm);
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 50%, #000 35%, transparent 100%);
+          mask-image: radial-gradient(120% 100% at 50% 50%, #000 35%, transparent 100%);
   pointer-events: none;
+}
+
+/* ---------------- Repères HUD (coins) ---------------- */
+
+.hud { position: absolute; inset: 2.6mm; pointer-events: none; }
+.hud b {
+  position: absolute;
+  width: 3.4mm; height: 3.4mm;
+  border: .3mm solid var(--cyan);
+  opacity: .5;
+}
+.hud b:nth-child(1) { top: 0;    left: 0;    border-right: 0; border-bottom: 0; }
+.hud b:nth-child(2) { top: 0;    right: 0;   border-left: 0;  border-bottom: 0; }
+.hud b:nth-child(3) { bottom: 0; left: 0;    border-right: 0; border-top: 0; }
+.hud b:nth-child(4) { bottom: 0; right: 0;   border-left: 0;  border-top: 0; }
+
+/* ---------------- Petits libellés mono ---------------- */
+
+.tag {
+  font-family: var(--mono);
+  font-size: 5pt;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0;
 }
 
 /* ---------------- RECTO ---------------- */
 
-.recto { padding: 5.5mm 6mm; }
+.recto { padding: 5.4mm 6.2mm; }
 
-.recto-body {
+.recto-tag { display: flex; align-items: center; gap: 1.6mm; }
+.recto-tag::after {
+  content: '';
+  flex: 1;
+  height: .3mm;
+  background: linear-gradient(90deg, rgba(34, 211, 238, .55), transparent);
+}
+
+.identity {
   position: relative;
   display: flex;
   align-items: center;
   gap: 5mm;
-  flex: 1;
+  margin-top: 3.2mm;
 }
 
-/* portrait circulaire avec anneau dégradé */
-.photo {
-  position: relative;
-  width: 24mm; height: 24mm;
-  border-radius: 50%;
+/* monogramme : remplace la photo */
+.mark {
+  width: 21mm; height: 21mm;
   flex: 0 0 auto;
-  background: var(--gradient);
-  padding: .7mm;
+  border: .55mm solid transparent;
+  border-image: var(--neon) 1;
+  border-radius: 4.4mm;
+  background:
+    radial-gradient(90% 90% at 30% 20%, rgba(124, 92, 255, .30), rgba(34, 211, 238, .10) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4mm rgba(124, 92, 255, .35), inset 0 0 3mm rgba(34, 211, 238, .18);
 }
-.photo img {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 22%;
-  display: block;
+.mark span {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 10.6pt;
+  letter-spacing: .01em;
+  background: linear-gradient(115deg, #ffffff, #cbc0ff 52%, #93f0ff);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
+.mark span i { font-style: normal; color: var(--cyan); }
 
-.identity { flex: 1; min-width: 0; }
+.text { flex: 1; min-width: 0; }
 
 .name {
-  font-family: var(--head);
-  font-weight: 800;
-  font-size: 13.2pt;
-  line-height: .98;
-  letter-spacing: -.02em;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14pt;
+  line-height: .96;
+  letter-spacing: -.022em;
   margin: 0;
   text-transform: uppercase;
 }
 .name .last {
   display: block;
-  background: var(--gradient);
+  background: var(--neon);
   -webkit-background-clip: text;
-  background-clip: text;
+          background-clip: text;
   color: transparent;
 }
 
 .role {
-  margin: 1.6mm 0 0;
-  font-size: 6.6pt;
-  font-weight: 500;
-  line-height: 1.32;
-  color: var(--muted);
-  letter-spacing: .005em;
+  margin: 2mm 0 0;
+  font-size: 6.5pt;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--dim);
 }
 
-/* pied du recto : filet dégradé + liste des prestations */
-.recto-foot { position: relative; margin-top: 3mm; }
+.recto-foot { position: relative; margin-top: auto; padding-top: 2.6mm; }
 
-.bar { height: 1.1mm; border-radius: 1mm; background: var(--gradient); }
+.bar { height: 1.2mm; border-radius: 1mm; background: var(--neon); box-shadow: 0 0 2.6mm rgba(124, 92, 255, .55); }
 
 .services {
   margin: 1.9mm 0 0;
-  font-size: 5.3pt;
-  font-weight: 700;
-  letter-spacing: .085em;
+  font-family: var(--mono);
+  font-size: 5.1pt;
+  font-weight: 500;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--dim);
   white-space: nowrap;
 }
-.services span { opacity: .38; margin: 0 .9mm; }
+.services span { color: var(--cyan); opacity: .8; margin: 0 1mm; }
 
 /* ---------------- VERSO ---------------- */
 
 .verso { padding: 0; }
 
-/* bandeau dégradé plein bord en tête du verso */
 .verso-band {
-  height: 2.4mm;
-  background: var(--gradient);
+  height: 2.6mm;
   flex: 0 0 auto;
+  background: var(--neon);
+  box-shadow: 0 0 3mm rgba(34, 211, 238, .5);
 }
 
 .verso-body {
   flex: 1;
-  padding: 3.3mm 6mm 3.6mm;
+  padding: 3.4mm 6.2mm 4mm;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
-.verso-label {
-  font-family: var(--head);
-  font-size: 6pt;
-  font-weight: 700;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 2.2mm;
+.verso-head { display: flex; align-items: center; gap: 1.6mm; margin-bottom: 2.4mm; }
+.verso-head::after {
+  content: '';
+  flex: 1;
+  height: .3mm;
+  background: linear-gradient(90deg, rgba(124, 92, 255, .55), transparent);
 }
+.verso-head .tag { color: var(--violet-lt); }
 
-.contact { display: flex; flex-direction: column; gap: 1.5mm; }
+.contact { display: flex; flex-direction: column; gap: 1.35mm; }
 
 .row {
   display: flex;
   align-items: center;
-  gap: 2.1mm;
-  font-size: 6.15pt;
+  gap: 1.9mm;
+  font-size: 6.05pt;
   line-height: 1.2;
-  color: var(--text);
+  color: var(--ink);
   text-decoration: none;
 }
 .row .ic {
-  width: 2.7mm; height: 2.7mm;
+  width: 2.5mm; height: 2.5mm;
   flex: 0 0 auto;
-  display: block;
-  color: var(--accent);
+  color: var(--violet-lt);
 }
-.row.wa .ic  { color: var(--accent2); }
+.row.wa .ic { color: var(--cyan); }
 .row .k {
-  font-weight: 700;
-  color: var(--muted);
-  font-size: 5.15pt;
-  letter-spacing: .045em;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 4.9pt;
+  letter-spacing: .11em;
   text-transform: uppercase;
-  flex: 0 0 10.5mm;
+  color: var(--faint);
+  flex: 0 0 10.2mm;
 }
 .row .v { font-weight: 500; }
-.row .v.url {
-  font-weight: 700;
-  letter-spacing: -.005em;
-  word-break: break-all;
-}
+.row .v.url { font-weight: 600; letter-spacing: -.005em; word-break: break-all; }
 
-/* pied du verso : lieu + les deux QR codes */
+/* pied : lieu + les deux QR */
 .verso-foot {
   margin-top: auto;
+  padding-top: 2.2mm;
+  border-top: .25mm solid var(--line);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 3mm;
-  padding-top: 2.4mm;
-  border-top: .2mm solid rgba(20, 20, 31, .09);
 }
 
 .place {
   display: flex;
   align-items: center;
-  gap: 1.4mm;
-  font-size: 5.5pt;
+  gap: 1.3mm;
+  font-family: var(--mono);
+  font-size: 5.1pt;
   font-weight: 500;
-  color: var(--muted);
-  line-height: 1.28;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--dim);
+  line-height: 1.3;
+  max-width: 22mm;
 }
-.place .ic { width: 2.5mm; height: 2.5mm; color: var(--accent); flex: 0 0 auto; }
+.place .ic { width: 2.4mm; height: 2.4mm; color: var(--violet-lt); flex: 0 0 auto; }
 
-/* les deux QR, côte à côte */
-.qrset { display: flex; gap: 3.2mm; }
+.qrset { display: flex; gap: 2.6mm; }
 
-.qritem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .7mm;
-  text-decoration: none;
-}
+.qritem { display: flex; flex-direction: column; align-items: center; gap: .9mm; text-decoration: none; }
 
 .qritem img {
-  width: 13.6mm; height: 13.6mm;
+  width: 13.4mm; height: 13.4mm;
   display: block;
-  border: .35mm solid rgba(20, 20, 31, .1);
-  border-radius: 1mm;
-  background: #fff;
+  background: #fff;              /* indispensable pour que le scanner lise le QR */
+  padding: .6mm;
+  border-radius: 1.1mm;
+  border: .3mm solid rgba(255, 255, 255, .18);
+  box-shadow: 0 0 3mm rgba(0, 0, 0, .45);
 }
+.qritem.portfolio img { box-shadow: 0 0 3mm rgba(124, 92, 255, .45); }
+.qritem.whatsapp  img { box-shadow: 0 0 3mm rgba(34, 211, 238, .40); }
 
 .qritem .cap {
-  font-size: 4.4pt;
+  font-family: var(--mono);
+  font-size: 4.3pt;
   font-weight: 700;
-  letter-spacing: .085em;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted);
   line-height: 1;
   white-space: nowrap;
 }
-.qritem.portfolio .cap { color: var(--accent); }
-.qritem.whatsapp  .cap { color: var(--accent2); }
+.qritem.portfolio .cap { color: var(--violet-lt); }
+.qritem.whatsapp  .cap { color: var(--cyan); }
 
 /* ---------------- Icônes ---------------- */
 .ic path, .ic circle, .ic rect { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.ic.solid path, .ic.solid circle { fill: currentColor; stroke: none; }
+.ic.solid path { fill: currentColor; stroke: none; }

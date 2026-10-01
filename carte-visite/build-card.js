@@ -14,15 +14,16 @@ const OUT = __dirname;
 const INFO = {
   firstName: 'Lionel',
   lastName:  'Ewene Monzia',
+  mark:      ['L', 'E', 'M'],           // monogramme affiche dans le carre
+  eyebrow:   'Full-Stack · UI/UX · Print',
   role:      'D\u00e9veloppeur Web &amp; Designer UI/UX',
-  services:  ['Sites web', 'Apps mobiles', 'Design graphique', 'Logiciels'],
+  services:  ['Sites web', 'Apps mobiles', 'Graphisme', 'Logiciels'],
   place:     'R\u00e9publique D\u00e9mocratique du Congo',
   urlShort:  'lionelewene7-star.github.io',
   urlPath:   '/Lionel-Ewene-Monzia',
   email:     'lionelewene7@gmail.com',
   github:    'github.com/lionelewene7-star',
   phone:     '+243 85 28 67 852',
-  photo:     'assets/leo.jpg',
   qr: {
     portfolio: { file: 'assets/qr-portfolio.png', url: 'https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/' },
     whatsapp:  { file: 'assets/qr-whatsapp.png',
@@ -43,20 +44,29 @@ const IC = {
   pin: `<path d="M20 10.2c0 5.4-8 11.3-8 11.3s-8-5.9-8-11.3a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.8"/>`,
 };
 
+/* repères HUD aux quatre coins */
+const hud = '<i class="hud"><b></b><b></b><b></b><b></b></i>';
+
 /* ------------------- RECTO ------------------- */
 function recto() {
+  // L.E.M : les points s'affichent en cyan néon
+  const [a, b, c] = INFO.mark;
+  const monogram = `${a}<i>.</i>${b}<i>.</i>${c}`;
+
   return `
   <article class="card recto">
-    <div class="recto-body">
-      <div class="photo"><img src="${INFO.photo}" alt=""></div>
-      <div class="identity">
+    ${hud}
+    <p class="tag recto-tag">${INFO.eyebrow}</p>
+    <div class="identity">
+      <div class="mark"><span>${monogram}</span></div>
+      <div class="text">
         <h1 class="name">${INFO.firstName}<span class="last">${INFO.lastName}</span></h1>
         <p class="role">${INFO.role}</p>
       </div>
     </div>
     <div class="recto-foot">
       <div class="bar"></div>
-      <p class="services">${INFO.services.join('<span>\u00b7</span>')}</p>
+      <p class="services">${INFO.services.join('<span>/</span>')}</p>
     </div>
   </article>`;
 }
@@ -72,14 +82,15 @@ function verso() {
 
   return `
   <article class="card verso">
+    ${hud}
     <div class="verso-band"></div>
     <div class="verso-body">
-      <p class="verso-label">Contact</p>
+      <div class="verso-head"><p class="tag">Contact</p></div>
       <div class="contact">
         ${row('wa', 'whatsapp', 'WhatsApp', INFO.phone, 'https://wa.me/243852867852')}
-        ${row('mail', 'mail', 'Email', INFO.email, 'mailto:' + INFO.email.replace(/&amp;/g, '&'))}
+        ${row('mail', 'mail', 'Email', INFO.email, 'mailto:' + INFO.email)}
         ${row('gh', 'github', 'GitHub', INFO.github, 'https://' + INFO.github)}
-        ${row('web', 'globe', 'Portfolio', INFO.urlShort + '<wbr>' + INFO.urlPath, 'https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/', 'url')}
+        ${row('web', 'globe', 'Site', INFO.urlShort + '<wbr>' + INFO.urlPath, INFO.qr.portfolio.url, 'url')}
       </div>
       <div class="verso-foot">
         <div class="place">${svg(IC.pin)}<span>${INFO.place}</span></div>
@@ -106,7 +117,7 @@ const head = extra => `<!doctype html>
 <title>Carte de visite \u2014 Lionel Ewene Monzia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="card.css">
 <style>
 ${extra}
@@ -114,60 +125,49 @@ ${extra}
 </head>
 <body>`;
 
-const FONTS_NOTE = `
-.link-print { display: block; margin: 6mm auto 0; text-align: center; font-size: 9pt; color: #555; }
-`;
-
 /* ============================================================
    1. index.html  —  planche A4 à imprimer et à découper
    ============================================================ */
 const sheetCss = `
 @page { size: A4 portrait; margin: 10mm; }
-body { padding: 10mm; }
-.sheet { width: 190mm; }
+body { padding: 10mm; background: #14161f; }
+.sheet { width: 190mm; margin: 0 auto; }
 .band-label {
-  font-family: var(--head); font-size: 7pt; font-weight: 700;
-  letter-spacing: .22em; text-transform: uppercase; color: #6a6a80;
+  font-family: 'JetBrains Mono', monospace; font-size: 7pt; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: #9a9ac0;
   margin: 0 0 2.2mm;
 }
 .band-label + .grid { margin-bottom: 7mm; }
 .grid { display: grid; grid-template-columns: repeat(2, 85mm); gap: 3mm; }
-.slot { outline: .2mm dashed rgba(108,92,231,.55); outline-offset: 0; }
+.slot { position: relative; outline: .2mm dashed rgba(34,211,238,.5); }
 .slot .tag {
-  position: absolute; top: -1mm; left: 0;
-  transform: translateY(-100%);
-  font-size: 5.6pt; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: #8a8aa0;
+  position: absolute; top: -1mm; left: 0; transform: translateY(-100%);
+  font-family: 'JetBrains Mono', monospace; font-size: 5.6pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: #8a8aa8;
 }
 .hint {
   margin-top: 4mm; padding: 3mm 4mm;
-  background: #fff; border-radius: 2mm;
-  border-left: .8mm solid var(--accent);
-  font-size: 8.5pt; line-height: 1.5; color: #3a3a4a;
+  background: #1b1d2a; border-radius: 2mm;
+  border-left: .8mm solid #7c5cff;
+  font-size: 8.5pt; line-height: 1.5; color: #c6c6dc;
 }
-.hint b { color: var(--text); }
-@media screen {
-  .sheet { margin: 0 auto; }
-  body { display: flex; justify-content: center; }
-}
+.hint b { color: #fff; }
 `;
 
 const slot = (mark, card) =>
   `<div class="slot" style="position:relative"><span class="tag">${mark}</span>${card}</div>`;
 
-const grid = mark => `<div class="grid">
-  ${slot(mark + ' 1', recto())}
-  ${slot(mark + ' 2', recto())}
-</div>
-<div class="grid">
-  ${slot(mark + ' 3', recto())}
-  ${slot(mark + ' 4', recto())}
-</div>`;
-
-const indexHtml = head(sheetCss + FONTS_NOTE) + `
+const indexHtml = head(sheetCss) + `
 <main class="sheet">
   <p class="band-label">Recto \u2014 face avant (4 exemplaires)</p>
-  ${grid('Recto')}
+  <div class="grid">
+    ${slot('Recto 1', recto())}
+    ${slot('Recto 2', recto())}
+  </div>
+  <div class="grid">
+    ${slot('Recto 3', recto())}
+    ${slot('Recto 4', recto())}
+  </div>
   <p class="band-label">Verso \u2014 face arri\u00e8re (4 exemplaires)</p>
   <div class="grid">
     ${slot('Verso 1', verso())}
@@ -178,9 +178,9 @@ const indexHtml = head(sheetCss + FONTS_NOTE) + `
     ${slot('Verso 4', verso())}
   </div>
   <div class="hint">
-    <b>Pour imprimer :</b> ouvrez ce fichier, puis <b>Ctrl + P</b> \u2192 Destination <b>Enregistrer au format PDF</b>
-    \u2192 Format <b>A4</b> \u2192 Marges <b>Aucune</b> \u2192 cochez <b>Arri\u00e8re-plan graphique</b>.<br>
-    D\u00e9coupez le long des pointill\u00e9s violets, puis assemblez recto + verso dos \u00e0 dos.
+    <b>Imprimer :</b> <b>Ctrl + P</b> \u2192 <b>Enregistrer au format PDF</b> \u2192 A4 \u2192 marges
+    <b>Aucune</b> \u2192 cochez <b>Arri\u00e8re-plan graphique</b> (obligatoire, le fond est sombre).<br>
+    D\u00e9coupez le long des pointill\u00e9s cyan, puis assemblez recto + verso dos \u00e0 dos.
   </div>
 </main>
 </body>
@@ -189,16 +189,13 @@ const indexHtml = head(sheetCss + FONTS_NOTE) + `
 
 /* ============================================================
    2. duplex.html  —  2 pages au format exact 85 x 55 mm
-      (pour un imprimeur, avec impression recto-verso)
    ============================================================ */
 const duplexCss = `
 @page { size: 85mm 55mm; margin: 0; }
-body { background: #fff; display: block; }
-.card { box-shadow: none; break-after: page; page-break-after: always; }
+body { background: #14161f; display: block; }
+.card { box-shadow: 0 0 4mm rgba(0,0,0,.6); break-after: page; page-break-after: always; }
 .card:last-child { break-after: auto; page-break-after: auto; }
-@media screen {
-  body { display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm; justify-content: center; }
-}
+@media screen { body { display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm; justify-content: center; } }
 `;
 
 const duplexHtml = head(duplexCss) + recto() + verso() + `

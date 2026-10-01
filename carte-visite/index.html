@@ -5,40 +5,33 @@
 <title>Carte de visite — Lionel Ewene Monzia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="card.css">
 <style>
 
 @page { size: A4 portrait; margin: 10mm; }
-body { padding: 10mm; }
-.sheet { width: 190mm; }
+body { padding: 10mm; background: #14161f; }
+.sheet { width: 190mm; margin: 0 auto; }
 .band-label {
-  font-family: var(--head); font-size: 7pt; font-weight: 700;
-  letter-spacing: .22em; text-transform: uppercase; color: #6a6a80;
+  font-family: 'JetBrains Mono', monospace; font-size: 7pt; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: #9a9ac0;
   margin: 0 0 2.2mm;
 }
 .band-label + .grid { margin-bottom: 7mm; }
 .grid { display: grid; grid-template-columns: repeat(2, 85mm); gap: 3mm; }
-.slot { outline: .2mm dashed rgba(108,92,231,.55); outline-offset: 0; }
+.slot { position: relative; outline: .2mm dashed rgba(34,211,238,.5); }
 .slot .tag {
-  position: absolute; top: -1mm; left: 0;
-  transform: translateY(-100%);
-  font-size: 5.6pt; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: #8a8aa0;
+  position: absolute; top: -1mm; left: 0; transform: translateY(-100%);
+  font-family: 'JetBrains Mono', monospace; font-size: 5.6pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: #8a8aa8;
 }
 .hint {
   margin-top: 4mm; padding: 3mm 4mm;
-  background: #fff; border-radius: 2mm;
-  border-left: .8mm solid var(--accent);
-  font-size: 8.5pt; line-height: 1.5; color: #3a3a4a;
+  background: #1b1d2a; border-radius: 2mm;
+  border-left: .8mm solid #7c5cff;
+  font-size: 8.5pt; line-height: 1.5; color: #c6c6dc;
 }
-.hint b { color: var(--text); }
-@media screen {
-  .sheet { margin: 0 auto; }
-  body { display: flex; justify-content: center; }
-}
-
-.link-print { display: block; margin: 6mm auto 0; text-align: center; font-size: 9pt; color: #555; }
+.hint b { color: #fff; }
 
 </style>
 </head>
@@ -46,72 +39,81 @@ body { padding: 10mm; }
 <main class="sheet">
   <p class="band-label">Recto — face avant (4 exemplaires)</p>
   <div class="grid">
-  <div class="slot" style="position:relative"><span class="tag">Recto 1</span>
+    <div class="slot" style="position:relative"><span class="tag">Recto 1</span>
   <article class="card recto">
-    <div class="recto-body">
-      <div class="photo"><img src="assets/leo.jpg" alt=""></div>
-      <div class="identity">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
+    <p class="tag recto-tag">Full-Stack · UI/UX · Print</p>
+    <div class="identity">
+      <div class="mark"><span>L<i>.</i>E<i>.</i>M</span></div>
+      <div class="text">
         <h1 class="name">Lionel<span class="last">Ewene Monzia</span></h1>
         <p class="role">Développeur Web &amp; Designer UI/UX</p>
       </div>
     </div>
     <div class="recto-foot">
       <div class="bar"></div>
-      <p class="services">Sites web<span>·</span>Apps mobiles<span>·</span>Design graphique<span>·</span>Logiciels</p>
+      <p class="services">Sites web<span>/</span>Apps mobiles<span>/</span>Graphisme<span>/</span>Logiciels</p>
     </div>
   </article></div>
-  <div class="slot" style="position:relative"><span class="tag">Recto 2</span>
+    <div class="slot" style="position:relative"><span class="tag">Recto 2</span>
   <article class="card recto">
-    <div class="recto-body">
-      <div class="photo"><img src="assets/leo.jpg" alt=""></div>
-      <div class="identity">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
+    <p class="tag recto-tag">Full-Stack · UI/UX · Print</p>
+    <div class="identity">
+      <div class="mark"><span>L<i>.</i>E<i>.</i>M</span></div>
+      <div class="text">
         <h1 class="name">Lionel<span class="last">Ewene Monzia</span></h1>
         <p class="role">Développeur Web &amp; Designer UI/UX</p>
       </div>
     </div>
     <div class="recto-foot">
       <div class="bar"></div>
-      <p class="services">Sites web<span>·</span>Apps mobiles<span>·</span>Design graphique<span>·</span>Logiciels</p>
+      <p class="services">Sites web<span>/</span>Apps mobiles<span>/</span>Graphisme<span>/</span>Logiciels</p>
     </div>
   </article></div>
-</div>
-<div class="grid">
-  <div class="slot" style="position:relative"><span class="tag">Recto 3</span>
+  </div>
+  <div class="grid">
+    <div class="slot" style="position:relative"><span class="tag">Recto 3</span>
   <article class="card recto">
-    <div class="recto-body">
-      <div class="photo"><img src="assets/leo.jpg" alt=""></div>
-      <div class="identity">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
+    <p class="tag recto-tag">Full-Stack · UI/UX · Print</p>
+    <div class="identity">
+      <div class="mark"><span>L<i>.</i>E<i>.</i>M</span></div>
+      <div class="text">
         <h1 class="name">Lionel<span class="last">Ewene Monzia</span></h1>
         <p class="role">Développeur Web &amp; Designer UI/UX</p>
       </div>
     </div>
     <div class="recto-foot">
       <div class="bar"></div>
-      <p class="services">Sites web<span>·</span>Apps mobiles<span>·</span>Design graphique<span>·</span>Logiciels</p>
+      <p class="services">Sites web<span>/</span>Apps mobiles<span>/</span>Graphisme<span>/</span>Logiciels</p>
     </div>
   </article></div>
-  <div class="slot" style="position:relative"><span class="tag">Recto 4</span>
+    <div class="slot" style="position:relative"><span class="tag">Recto 4</span>
   <article class="card recto">
-    <div class="recto-body">
-      <div class="photo"><img src="assets/leo.jpg" alt=""></div>
-      <div class="identity">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
+    <p class="tag recto-tag">Full-Stack · UI/UX · Print</p>
+    <div class="identity">
+      <div class="mark"><span>L<i>.</i>E<i>.</i>M</span></div>
+      <div class="text">
         <h1 class="name">Lionel<span class="last">Ewene Monzia</span></h1>
         <p class="role">Développeur Web &amp; Designer UI/UX</p>
       </div>
     </div>
     <div class="recto-foot">
       <div class="bar"></div>
-      <p class="services">Sites web<span>·</span>Apps mobiles<span>·</span>Design graphique<span>·</span>Logiciels</p>
+      <p class="services">Sites web<span>/</span>Apps mobiles<span>/</span>Graphisme<span>/</span>Logiciels</p>
     </div>
   </article></div>
-</div>
+  </div>
   <p class="band-label">Verso — face arrière (4 exemplaires)</p>
   <div class="grid">
     <div class="slot" style="position:relative"><span class="tag">Verso 1</span>
   <article class="card verso">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
     <div class="verso-band"></div>
     <div class="verso-body">
-      <p class="verso-label">Contact</p>
+      <div class="verso-head"><p class="tag">Contact</p></div>
       <div class="contact">
         
         <a class="row wa" href="https://wa.me/243852867852">
@@ -138,7 +140,7 @@ body { padding: 10mm; }
         <a class="row web" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
           <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-          <span class="k">Portfolio</span>
+          <span class="k">Site</span>
           <span class="v url">lionelewene7-star.github.io<wbr>/Lionel-Ewene-Monzia</span>
         </a>
       </div>
@@ -160,9 +162,10 @@ body { padding: 10mm; }
   </article></div>
     <div class="slot" style="position:relative"><span class="tag">Verso 2</span>
   <article class="card verso">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
     <div class="verso-band"></div>
     <div class="verso-body">
-      <p class="verso-label">Contact</p>
+      <div class="verso-head"><p class="tag">Contact</p></div>
       <div class="contact">
         
         <a class="row wa" href="https://wa.me/243852867852">
@@ -189,7 +192,7 @@ body { padding: 10mm; }
         <a class="row web" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
           <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-          <span class="k">Portfolio</span>
+          <span class="k">Site</span>
           <span class="v url">lionelewene7-star.github.io<wbr>/Lionel-Ewene-Monzia</span>
         </a>
       </div>
@@ -213,9 +216,10 @@ body { padding: 10mm; }
   <div class="grid">
     <div class="slot" style="position:relative"><span class="tag">Verso 3</span>
   <article class="card verso">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
     <div class="verso-band"></div>
     <div class="verso-body">
-      <p class="verso-label">Contact</p>
+      <div class="verso-head"><p class="tag">Contact</p></div>
       <div class="contact">
         
         <a class="row wa" href="https://wa.me/243852867852">
@@ -242,7 +246,7 @@ body { padding: 10mm; }
         <a class="row web" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
           <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-          <span class="k">Portfolio</span>
+          <span class="k">Site</span>
           <span class="v url">lionelewene7-star.github.io<wbr>/Lionel-Ewene-Monzia</span>
         </a>
       </div>
@@ -264,9 +268,10 @@ body { padding: 10mm; }
   </article></div>
     <div class="slot" style="position:relative"><span class="tag">Verso 4</span>
   <article class="card verso">
+    <i class="hud"><b></b><b></b><b></b><b></b></i>
     <div class="verso-band"></div>
     <div class="verso-body">
-      <p class="verso-label">Contact</p>
+      <div class="verso-head"><p class="tag">Contact</p></div>
       <div class="contact">
         
         <a class="row wa" href="https://wa.me/243852867852">
@@ -293,7 +298,7 @@ body { padding: 10mm; }
         <a class="row web" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
           <svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-          <span class="k">Portfolio</span>
+          <span class="k">Site</span>
           <span class="v url">lionelewene7-star.github.io<wbr>/Lionel-Ewene-Monzia</span>
         </a>
       </div>
@@ -315,9 +320,9 @@ body { padding: 10mm; }
   </article></div>
   </div>
   <div class="hint">
-    <b>Pour imprimer :</b> ouvrez ce fichier, puis <b>Ctrl + P</b> → Destination <b>Enregistrer au format PDF</b>
-    → Format <b>A4</b> → Marges <b>Aucune</b> → cochez <b>Arrière-plan graphique</b>.<br>
-    Découpez le long des pointillés violets, puis assemblez recto + verso dos à dos.
+    <b>Imprimer :</b> <b>Ctrl + P</b> → <b>Enregistrer au format PDF</b> → A4 → marges
+    <b>Aucune</b> → cochez <b>Arrière-plan graphique</b> (obligatoire, le fond est sombre).<br>
+    Découpez le long des pointillés cyan, puis assemblez recto + verso dos à dos.
   </div>
 </main>
 </body>
