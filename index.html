@@ -12,13 +12,14 @@
   <meta name="theme-color" content="#f6f6fb">
   <link rel="canonical" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/">
 
-  <!-- Favicon : logo "leo" -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Favicon : logo ONYX (pierre facettée) -->
+  <link rel="icon" href="onyx-favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="onyx-mark.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="onyx-favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="onyx-favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="onyx-favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="onyx-favicon-96x96.png">
+  <link rel="apple-touch-icon" href="onyx-apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Open Graph (partage WhatsApp / Facebook / LinkedIn) -->
@@ -28,7 +29,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="ONYX — Studio créatif digital">
   <meta property="og:description" content="Sites web, applications mobiles, logiciels, design graphique et identité visuelle. Un studio, une exigence : allier esthétique, performance et clarté.">
-  <meta property="og:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png">
+  <meta property="og:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/onyx-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="ONYX — Studio créatif digital">
@@ -37,7 +38,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ONYX — Studio créatif digital">
   <meta name="twitter:description" content="Sites web, applications mobiles, logiciels, design graphique et identité visuelle. Démarrons votre projet.">
-  <meta name="twitter:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png">
+  <meta name="twitter:image" content="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/onyx-og.png">
 
   <!-- Données structurées : le studio ONYX -->
   <script type="application/ld+json">
@@ -49,7 +50,8 @@
     "description": "Studio créatif digital : sites web, applications mobiles, logiciels, design graphique, identité visuelle et print.",
     "slogan": "Des idées noires sur papier blanc — la précision avant tout.",
     "url": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/",
-    "image": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/og-image.png",
+    "image": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/onyx-og.png",
+    "logo": "https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/onyx-favicon-512x512.png",
     "email": "mailto:lionelewene7@gmail.com",
     "telephone": "+243852867852",
     "address": {
@@ -419,7 +421,7 @@
       aspect-ratio: 320 / 380;
       border-radius: 20px;
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; flex-direction: column; gap: 18px; align-items: center; justify-content: center;
       background:
         radial-gradient(120% 90% at 18% 8%,  rgba(108, 92, 231, 0.38), transparent 55%),
         radial-gradient(120% 100% at 88% 95%, rgba(0, 206, 201, 0.30),  transparent 55%),
@@ -428,11 +430,15 @@
     }
     .onyx-word {
       font-weight: 800;
-      font-size: 56px;
+      font-size: 52px;
       letter-spacing: 10px;
       margin-left: 10px; /* compense le letter-spacing final */
       color: #ffffff;
       text-shadow: 0 0 34px rgba(108, 92, 231, 0.55);
+    }
+    .onyx-mark-img {
+      width: 96px; height: 96px;
+      filter: drop-shadow(0 12px 28px rgba(45, 212, 191, 0.38));
     }
     .onyx-tag {
       position: absolute;
@@ -463,6 +469,16 @@
       border: 2px solid transparent;
       background: linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
       box-shadow: 0 4px 14px rgba(108, 92, 231, 0.35);
+    }
+
+    /* Logo ONYX (wordmark) dans la navigation */
+    .brand-wordmark {
+      display: block;
+      height: 40px;
+      width: auto;
+    }
+    @media (max-width: 420px) {
+      .brand-wordmark { height: 34px; }
     }
 
     /* Lien d'évitement (accessibilité) */
@@ -510,8 +526,7 @@
   <div id="app-wrapper" style="position:relative; z-index:1; width:100%;"><!-- Navigation -->
    <nav id="main-nav" style="position:fixed; top:0; left:0; right:0; z-index:100; transition: background 0.3s, backdrop-filter 0.3s;">
     <div style="max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; align-items:center; justify-content:space-between;"><a href="#hero" class="magnetic" style="display:flex; align-items:center; gap:12px; text-decoration:none;" aria-label="ONYX — retour au studio">
-      <img src="favicon-96x96.png" alt="" class="brand-logo" width="42" height="42">
-      <span class="font-heading" style="font-size:24px; font-weight:800; color:var(--text);">ONYX<span class="text-gradient">.</span></span>
+      <img src="onyx-logo.svg" alt="ONYX — Studio créatif digital" class="brand-wordmark" width="129" height="40">
      </a>
       <div class="hidden md:flex items-center gap-8"><a href="#studio" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Studio</a> <a href="#services" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Services</a> <a href="portfolio.html" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Portfolio</a> <a href="#contact" class="btn-gradient magnetic" style="color:white; text-decoration:none; font-size:14px; letter-spacing:1px; padding:10px 24px; border-radius:50px; font-weight:600;">Contact</a>
       </div><button id="menu-toggle" class="md:hidden" style="background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Menu"> <i data-lucide="menu" style="width:28px;height:28px;"></i> </button>
@@ -542,6 +557,7 @@
        <div class="onyx-frame">
         <div class="onyx-stone">
          <span class="onyx-shine" aria-hidden="true"></span>
+         <img src="onyx-mark.svg" alt="" class="onyx-mark-img" width="96" height="96" aria-hidden="true">
          <div class="onyx-word font-heading">ONYX</div>
          <div class="onyx-tag">Studio créatif digital</div>
         </div>
@@ -768,9 +784,7 @@
     </section><!-- Footer -->
     <footer style="padding:40px 24px; border-top:1px solid rgba(108,92,231,0.1); text-align:center;">
      <div style="max-width:1200px; margin:0 auto;">
-      <div class="font-heading" style="font-size:28px; font-weight:800; margin-bottom:8px;">
-       ONYX<span class="text-gradient">.</span>
-      </div>
+      <img src="onyx-logo.svg" alt="ONYX — Studio créatif digital" style="height:44px; width:auto; display:block; margin:0 auto 10px;">
       <p style="font-size:14px; color:rgba(18,18,28,0.62);">Studio créatif digital &middot; RD Congo</p>
       <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;"><a href="portfolio.html" aria-label="Voir le portfolio" title="Voir le portfolio" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="layout-grid" style="width:18px;height:18px;"></i> </a> <a href="mailto:lionelewene7@gmail.com" aria-label="Écrire par email" title="Écrire par email" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a>
       </div>

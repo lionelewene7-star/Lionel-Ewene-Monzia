@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206 64" role="img" aria-label="ONYX">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset=".55" stop-color="#071a1c"/>
+      <stop offset="1" stop-color="#052925"/>
+    </linearGradient>
+    <linearGradient id="facetA" x1="32" y1="13" x2="49" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <linearGradient id="facetB" x1="32" y1="13" x2="15" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ccfbf1"/>
+      <stop offset="1" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="facetC" x1="15" y1="22" x2="32" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#115e59"/>
+    </linearGradient>
+    <linearGradient id="facetD" x1="49" y1="22" x2="32" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="facetE" x1="15" y1="42" x2="32" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#134e4a"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="facetF" x1="49" y1="42" x2="32" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#042f2e"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <rect width="64" height="64" rx="16" fill="url(#tile)"/>
+    <rect x=".75" y=".75" width="62.5" height="62.5" rx="15.25" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="1.5"/>
+    <g stroke="#ecfeff" stroke-opacity=".55" stroke-width=".6" stroke-linejoin="round">
+      <path d="M32 13 49 22 32 32Z" fill="url(#facetA)"/>
+      <path d="M32 13 15 22 32 32Z" fill="url(#facetB)"/>
+      <path d="M15 22 15 42 32 32Z" fill="url(#facetC)"/>
+      <path d="M49 22 49 42 32 32Z" fill="url(#facetD)"/>
+      <path d="M15 42 32 51 32 32Z" fill="url(#facetE)"/>
+      <path d="M49 42 32 51 32 32Z" fill="url(#facetF)"/>
+    </g>
+    <path d="M47.5 12.5l1.15 3.35 3.35 1.15-3.35 1.15-1.15 3.35-1.15-3.35-3.35-1.15 3.35-1.15z" fill="#ffffff" opacity=".95"/>
+  </g>
+
+  <text x="80" y="44" font-family="'Segoe UI', 'Arial Black', Arial, sans-serif" font-size="33" font-weight="900" letter-spacing="3.4" fill="#0f172a">ONYX<tspan fill="#0d9488">.</tspan></text>
+</svg>
