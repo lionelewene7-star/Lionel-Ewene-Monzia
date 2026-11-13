@@ -9,7 +9,7 @@
   <meta name="author" content="Lionel Ewene Monzia">
   <meta name="keywords" content="développeur web, designer UI/UX, création site web, application mobile, design graphique, affiches, invitations, RD Congo, Kinshasa, freelance">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="theme-color" content="#f6f6fb">
+  <meta name="theme-color" content="#F3F1EB">
   <link rel="canonical" href="https://lionelewene7-star.github.io/Lionel-Ewene-Monzia/portfolio.html">
 
   <!-- Favicon : logo "leo" -->
@@ -121,12 +121,12 @@
 
     :root {
       /* Thème clair */
-      --bg: #f6f6fb;
-      --surface: #ffffff;
-      --text: #14141f;
-      --accent: #6c5ce7;
-      --accent2: #0f766e;
-      --nav-bg: rgba(246, 246, 251, 0.88);
+      --bg: #F3F1EB;
+      --surface: #FBFAF6;
+      --text: #0C0C10;
+      --accent: #0B3B38;
+      --accent2: #0F766E;
+      --nav-bg: rgba(243, 241, 235, 0.88);
       --shadow-sm: 0 1px 2px rgba(18, 18, 28, 0.05);
       --shadow-md: 0 2px 4px rgba(18, 18, 28, 0.04), 0 10px 28px rgba(18, 18, 28, 0.07);
       --shadow-lg: 0 4px 8px rgba(18, 18, 28, 0.05), 0 18px 44px rgba(18, 18, 28, 0.10);
@@ -146,7 +146,7 @@
       position: fixed;
       border-radius: 50%;
       filter: blur(110px);
-      opacity: 0.5;
+      opacity: 0.3;
       pointer-events: none;
       z-index: 0;
     }
@@ -261,7 +261,7 @@
     .glow-card {
       position: relative;
       background: var(--surface);
-      border: 1px solid rgba(108, 92, 231, 0.16);
+      border: 1px solid rgba(15, 118, 110, 0.16);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
@@ -279,7 +279,7 @@
     }
     .glow-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(108, 92, 231, 0.4);
+      border-color: rgba(15, 118, 110, 0.4);
       box-shadow: var(--shadow-lg);
     }
     .glow-card:hover::before {
@@ -409,7 +409,7 @@
     /* Section divider */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(108,92,231,0.3), rgba(0,206,201,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(15,118,110,0.3), rgba(0,206,201,0.3), transparent);
     }
 
     /* Toast */
@@ -462,7 +462,7 @@
       padding: 14px 18px;
       border-radius: 12px;
       background: var(--surface);
-      border: 1px solid rgba(108, 92, 231, 0.15);
+      border: 1px solid rgba(15, 118, 110, 0.15);
       color: var(--text);
       font-size: 15px;
       font-family: inherit;
@@ -472,10 +472,10 @@
       appearance: none;
     }
     .field::placeholder { color: rgba(18,18,28,0.6); }
-    .field:hover { border-color: rgba(108, 92, 231, 0.3); }
+    .field:hover { border-color: rgba(15, 118, 110, 0.3); }
     .field:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.18);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
     }
     .field.invalid {
       border-color: #e03131;
@@ -563,7 +563,7 @@
       object-fit: cover;
       border: 2px solid transparent;
       background: linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
-      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.35);
+      box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -603,7 +603,7 @@
    <section id="hero" class="hero-full" style="display:flex; align-items:center; padding:120px 24px 80px;">
     <div style="max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr; gap:60px; align-items:center;" class="md:grid-cols-2">
      <div>
-      <div class="reveal" style="margin-bottom:20px;"><span style="display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:50px; background:rgba(108,92,231,0.1); border:1px solid rgba(108,92,231,0.3); font-size:14px; color:var(--accent2);"> <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);animation:blink 1.5s infinite;"></span> Disponible pour de nouveaux projets </span>
+      <div class="reveal" style="margin-bottom:20px;"><span style="display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:50px; background:rgba(15,118,110,0.1); border:1px solid rgba(15,118,110,0.3); font-size:14px; color:var(--accent2);"> <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);animation:blink 1.5s infinite;"></span> Disponible pour de nouveaux projets </span>
       </div>
       <div class="hero-text-line" style="margin-bottom:8px;"><span id="hero-greeting" style="font-size:clamp(18px,3vw,24px); color:rgba(18,18,28,0.62); animation-delay:0.2s;" class="font-heading">Bonjour, je suis</span>
       </div>
@@ -614,12 +614,12 @@
       </div>
       <div class="reveal delay-4" style="margin-top:36px; display:flex; gap:16px; flex-wrap:wrap;"><a href="#projects" class="btn-gradient magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:white; text-decoration:none; font-weight:600; font-size:16px;"> Voir mes projets <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a> <a href="#contact" class="magnetic" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; border-radius:60px; color:var(--text); text-decoration:none; font-weight:600; font-size:16px; border:1px solid rgba(18,18,28,0.2); transition:border-color 0.3s;"> Me contacter <i data-lucide="send" style="width:16px;height:16px;"></i> </a>
       </div>
-      <div class="reveal delay-5" style="margin-top:48px; display:flex; gap:20px;"><a href="mailto:lionelewene7@gmail.com" class="magnetic" aria-label="Écrire par email" title="Écrire par email" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:20px;height:20px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" class="magnetic" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:20px;height:20px;"></i> </a>
+      <div class="reveal delay-5" style="margin-top:48px; display:flex; gap:20px;"><a href="mailto:lionelewene7@gmail.com" class="magnetic" aria-label="Écrire par email" title="Écrire par email" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(15,118,110,0.1);border:1px solid rgba(15,118,110,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:20px;height:20px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" class="magnetic" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.2);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:20px;height:20px;"></i> </a>
       </div>
      </div>
      <div class="reveal-scale delay-3" style="display:flex; justify-content:center;">
-      <div class="photo-frame" style="position:relative;"><!-- ma photo --> <img id="profile-photo" src="leo.jpeg" alt="Lionel Ewene Monzia" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #6c5ce7, #00cec9)'; this.alt='Photo'; this.style.display='flex';" style="width:320px; height:380px; object-fit:cover; border-radius:20px; display:block;"> <!-- Floating badges -->
-       <div class="float-badge" style="position:absolute; top:-16px; right:-16px; background:var(--surface); border:1px solid rgba(108,92,231,0.3); border-radius:16px; padding:12px 18px; display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600;"><i data-lucide="code-2" style="width:18px;height:18px;color:var(--accent);"></i> VS Code
+      <div class="photo-frame" style="position:relative;"><!-- ma photo --> <img id="profile-photo" src="leo.jpeg" alt="Lionel Ewene Monzia" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #0B3B38, #0F766E)'; this.alt='Photo'; this.style.display='flex';" style="width:320px; height:380px; object-fit:cover; border-radius:20px; display:block;"> <!-- Floating badges -->
+       <div class="float-badge" style="position:absolute; top:-16px; right:-16px; background:var(--surface); border:1px solid rgba(15,118,110,0.3); border-radius:16px; padding:12px 18px; display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600;"><i data-lucide="code-2" style="width:18px;height:18px;color:var(--accent);"></i> VS Code
        </div>
        <div class="float-badge" style="position:absolute; bottom:-12px; left:-16px; background:var(--surface); border:1px solid rgba(0,206,201,0.3); border-radius:16px; padding:12px 18px; display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; animation-delay:1.5s;"><i data-lucide="palette" style="width:18px;height:18px;color:var(--accent2);"></i> Designer
        </div>
@@ -627,7 +627,7 @@
      </div>
     </div>
    </section><!-- Marquee -->
-   <div style="overflow:hidden; padding:24px 0; border-top:1px solid rgba(108,92,231,0.1); border-bottom:1px solid rgba(108,92,231,0.1);">
+   <div style="overflow:hidden; padding:24px 0; border-top:1px solid rgba(15,118,110,0.1); border-bottom:1px solid rgba(15,118,110,0.1);">
     <div class="marquee-track"><span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(18,18,28,0.65); padding:0 40px;">Sites Web ✦ Applications Mobiles ✦ Design UI/UX ✦ Logiciels ✦ Affiches ✦ Invitations ✦ Branding ✦ Développement ✦ Créativité ✦</span> <span style="white-space:nowrap; font-size:14px; text-transform:uppercase; letter-spacing:4px; color:rgba(18,18,28,0.65); padding:0 40px;">Sites Web ✦ Applications Mobiles ✦ Design UI/UX ✦ Logiciels ✦ Affiches ✦ Invitations ✦ Branding ✦ Développement ✦ Créativité ✦</span>
     </div>
    </div><!-- About Section -->
@@ -640,7 +640,7 @@
       <div class="reveal-left delay-2">
        <p id="about-text" style="font-size:17px; line-height:1.85; color:rgba(18,18,28,0.75);">Je suis Lionel Ewene Monzia, un développeur designer polyvalent et perfectionniste. Ma passion est de transformer des idées en expériences numériques exceptionnelles. Je crée des sites web, des applications web et mobiles, des logiciels, ainsi que toutes sortes d'affiches et invitations. Chaque projet est une opportunité de repousser les limites de la créativité et de la technique.</p>
        <div style="margin-top:32px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-        <div style="padding:20px; border-radius:16px; background:rgba(108,92,231,0.06); border:1px solid rgba(108,92,231,0.12);">
+        <div style="padding:20px; border-radius:16px; background:rgba(15,118,110,0.06); border:1px solid rgba(15,118,110,0.12);">
          <div class="counter-num font-heading" data-target="50" style="font-size:36px; font-weight:800; color:var(--accent);">
           0
          </div>
@@ -660,8 +660,8 @@
       </div>
       <div class="reveal-right delay-3">
        <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="padding:24px; border-radius:16px; background:var(--surface); border:1px solid rgba(108,92,231,0.12); display:flex; align-items:center; gap:16px;">
-         <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),rgba(108,92,231,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="target" style="width:22px;height:22px;color:white;"></i>
+        <div style="padding:24px; border-radius:16px; background:var(--surface); border:1px solid rgba(15,118,110,0.12); display:flex; align-items:center; gap:16px;">
+         <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),rgba(15,118,110,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="target" style="width:22px;height:22px;color:white;"></i>
          </div>
          <div>
           <div class="font-heading" style="font-weight:700; font-size:16px;">
@@ -684,7 +684,7 @@
           </div>
          </div>
         </div>
-        <div style="padding:24px; border-radius:16px; background:var(--surface); border:1px solid rgba(108,92,231,0.12); display:flex; align-items:center; gap:16px;">
+        <div style="padding:24px; border-radius:16px; background:var(--surface); border:1px solid rgba(15,118,110,0.12); display:flex; align-items:center; gap:16px;">
          <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="zap" style="width:22px;height:22px;color:white;"></i>
          </div>
          <div>
@@ -757,35 +757,35 @@
         <div>
          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span>HTML / CSS / Tailwind</span><span style="color:var(--accent);">95%</span>
          </div>
-         <div style="height:6px; border-radius:3px; background:rgba(108,92,231,0.15); overflow:hidden;">
+         <div style="height:6px; border-radius:3px; background:rgba(15,118,110,0.15); overflow:hidden;">
           <div class="skill-fill" style="--fill:95%; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
          </div>
         </div>
         <div>
          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span>JavaScript / TypeScript</span><span style="color:var(--accent);">90%</span>
          </div>
-         <div style="height:6px; border-radius:3px; background:rgba(108,92,231,0.15); overflow:hidden;">
+         <div style="height:6px; border-radius:3px; background:rgba(15,118,110,0.15); overflow:hidden;">
           <div class="skill-fill" style="--fill:90%; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
          </div>
         </div>
         <div>
          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span>React / React Native</span><span style="color:var(--accent);">88%</span>
          </div>
-         <div style="height:6px; border-radius:3px; background:rgba(108,92,231,0.15); overflow:hidden;">
+         <div style="height:6px; border-radius:3px; background:rgba(15,118,110,0.15); overflow:hidden;">
           <div class="skill-fill" style="--fill:88%; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
          </div>
         </div>
         <div>
          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span>Node.js / Backend</span><span style="color:var(--accent);">85%</span>
          </div>
-         <div style="height:6px; border-radius:3px; background:rgba(108,92,231,0.15); overflow:hidden;">
+         <div style="height:6px; border-radius:3px; background:rgba(15,118,110,0.15); overflow:hidden;">
           <div class="skill-fill" style="--fill:85%; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
          </div>
         </div>
         <div>
          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;"><span>Python</span><span style="color:var(--accent);">80%</span>
          </div>
-         <div style="height:6px; border-radius:3px; background:rgba(108,92,231,0.15); overflow:hidden;">
+         <div style="height:6px; border-radius:3px; background:rgba(15,118,110,0.15); overflow:hidden;">
           <div class="skill-fill" style="--fill:80%; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
          </div>
         </div>
@@ -835,15 +835,15 @@
      <div class="reveal delay-4" style="margin-top:60px;">
       <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:24px; text-align:center;">Outils favoris</h3>
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px;">
-       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="code-2" style="width:16px;height:16px;color:var(--accent);"></i> VS Code
+       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(15,118,110,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="code-2" style="width:16px;height:16px;color:var(--accent);"></i> VS Code
        </div>
        <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(0,206,201,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="figma" style="width:16px;height:16px;color:var(--accent2);"></i> Figma
        </div>
-       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="git-branch" style="width:16px;height:16px;color:var(--accent);"></i> Git
+       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(15,118,110,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="git-branch" style="width:16px;height:16px;color:var(--accent);"></i> Git
        </div>
        <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(0,206,201,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="terminal" style="width:16px;height:16px;color:var(--accent2);"></i> Terminal
        </div>
-       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(108,92,231,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="database" style="width:16px;height:16px;color:var(--accent);"></i> Databases
+       <div style="padding:14px 24px; border-radius:50px; background:var(--surface); border:1px solid rgba(15,118,110,0.15); font-size:14px; display:flex; align-items:center; gap:8px;"><i data-lucide="database" style="width:16px;height:16px;color:var(--accent);"></i> Databases
        </div>
       </div>
      </div>
@@ -866,7 +866,7 @@
         </div>
         <div style="padding:28px;">
           <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-            <span style="padding:4px 12px; border-radius:20px; background:rgba(108,92,231,0.15); font-size:12px; color:var(--accent);">React</span> 
+            <span style="padding:4px 12px; border-radius:20px; background:rgba(15,118,110,0.15); font-size:12px; color:var(--accent);">React</span> 
             <span style="padding:4px 12px; border-radius:20px; background:rgba(0,206,201,0.15); font-size:12px; color:var(--accent2);">Node.js</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">Plateforme E-commerce</h3>
@@ -882,7 +882,7 @@
         <div style="padding:28px;">
           <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
             <span style="padding:4px 12px; border-radius:20px; background:rgba(0,206,201,0.15); font-size:12px; color:var(--accent2);">React Native</span> 
-            <span style="padding:4px 12px; border-radius:20px; background:rgba(108,92,231,0.15); font-size:12px; color:var(--accent);">Firebase</span>
+            <span style="padding:4px 12px; border-radius:20px; background:rgba(15,118,110,0.15); font-size:12px; color:var(--accent);">Firebase</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">App de Livraison</h3>
           <p style="font-size:14px; color:rgba(18,18,28,0.65); line-height:1.6;">Application mobile de livraison avec suivi en temps réel et notifications push.</p>
@@ -897,7 +897,7 @@
         <div style="padding:28px;">
           <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
             <span style="padding:4px 12px; border-radius:20px; background:rgba(194,24,91,0.10); font-size:12px; color:#a4133f;">Photoshop</span> 
-            <span style="padding:4px 12px; border-radius:20px; background:rgba(108,92,231,0.15); font-size:12px; color:var(--accent);">Illustrator</span>
+            <span style="padding:4px 12px; border-radius:20px; background:rgba(15,118,110,0.15); font-size:12px; color:var(--accent);">Illustrator</span>
           </div>
           <h3 class="font-heading" style="font-size:20px; font-weight:700; margin-bottom:8px;">Campagne Visuelle</h3>
           <p style="font-size:14px; color:rgba(18,18,28,0.65); line-height:1.6;">Série d'affiches et invitations pour événements corporatifs et culturels.</p>
@@ -917,7 +917,7 @@
      <div style="display:grid; grid-template-columns:1fr; gap:40px; max-width:900px; margin:0 auto;" class="md:grid-cols-2">
       <div class="reveal-left delay-1">
        <div style="display:flex; flex-direction:column; gap:20px;"><a href="mailto:lionelewene7@gmail.com" class="glow-card" style="padding:28px; display:flex; align-items:center; gap:20px; text-decoration:none; color:var(--text);">
-         <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent),rgba(108,92,231,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="mail" style="width:24px;height:24px;color:white;"></i>
+         <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--accent),rgba(15,118,110,0.3));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="mail" style="width:24px;height:24px;color:white;"></i>
          </div>
          <div>
           <div style="font-size:13px; color:rgba(18,18,28,0.65); margin-bottom:4px;">
@@ -1019,13 +1019,13 @@
      </div>
     </div>
    </section><!-- Footer -->
-   <footer style="padding:40px 24px; border-top:1px solid rgba(108,92,231,0.1); text-align:center;">
+   <footer style="padding:40px 24px; border-top:1px solid rgba(15,118,110,0.1); text-align:center;">
     <div style="max-width:1200px; margin:0 auto;">
      <div class="font-heading" style="font-size:28px; font-weight:800; margin-bottom:16px;">
       L<span class="text-gradient">.</span>E<span class="text-gradient">.</span>M
      </div>
      <p id="footer-text" style="font-size:14px; color:rgba(18,18,28,0.62);">Leo Monzia &middot; <a href="index.html" style="color:var(--accent2); font-weight:600;">Studio ONYX</a></p>
-     <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;"><a href="mailto:lionelewene7@gmail.com" aria-label="Écrire par email" title="Écrire par email" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a>
+     <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;"><a href="mailto:lionelewene7@gmail.com" aria-label="Écrire par email" title="Écrire par email" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(15,118,110,0.1);border:1px solid rgba(15,118,110,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="mail" style="width:18px;height:18px;"></i> </a> <a href="https://wa.me/243852867852" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp" title="Discuter sur WhatsApp" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,206,201,0.1);border:1px solid rgba(0,206,201,0.15);color:var(--text);text-decoration:none;transition:all 0.3s;"> <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a>
      </div>
     </div>
    </footer>
@@ -1067,7 +1067,7 @@
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(108, 92, 231, ${this.opacity})`;
+        ctx.fillStyle = `rgba(15, 118, 110, ${this.opacity})`;
         ctx.fill();
       }
     }
@@ -1088,7 +1088,7 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(108, 92, 231, ${0.16 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(15, 118, 110, ${0.16 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
