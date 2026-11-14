@@ -19,7 +19,7 @@
     fr: {
       open: 'Parler à Leasy',
       title: 'Leasy',
-      subtitle: 'Assistant ONYX · en ligne',
+      subtitle: 'Assistant IA ONYX · en ligne',
       placeholder: 'Écrivez ou parlez…',
       send: 'Envoyer',
       mic: 'Parler à Leasy',
@@ -27,10 +27,12 @@
       voiceOff: 'Activer la voix',
       close: 'Fermer',
       listening: 'Je vous écoute… parlez maintenant.',
-      note: 'Leasy est l\'assistant automatique d\'ONYX. Pour un devis précis, Lionel vous répond sur WhatsApp.',
+      note: 'Leasy est une IA — vos messages sont traités par un service externe. Pour un devis précis, Lionel vous répond sur WhatsApp.',
+      noteLocal: 'Leasy est l\'assistant automatique d\'ONYX. Pour un devis précis, Lionel vous répond sur WhatsApp.',
       chips: ['Services', 'Tarifs', 'Portfolio', 'WhatsApp'],
       welcome: 'Bonjour 👋 Je suis Leasy, l\'assistant du studio ONYX.\nJe peux vous renseigner sur les services, les délais, les tarifs ou le portfolio — et vous mettre en contact avec Lionel.',
       hint: 'Astuce : appuyez sur le micro pour me parler 🎙️',
+      aiWelcome: 'Vous pouvez aussi me poser des questions générales : conseils, explications, rédaction.',
       micDenied: 'L\'accès au micro est bloqué. Autorisez le microphone dans votre navigateur, ou écrivez simplement votre message.',
       micError: 'Je n\'ai pas pu démarrer le micro. Réessayez, ou écrivez votre message.',
       waBtn: 'WhatsApp',
@@ -44,7 +46,7 @@
     en: {
       open: 'Talk to Leasy',
       title: 'Leasy',
-      subtitle: 'ONYX assistant · online',
+      subtitle: 'ONYX AI assistant · online',
       placeholder: 'Type or speak…',
       send: 'Send',
       mic: 'Talk to Leasy',
@@ -52,10 +54,12 @@
       voiceOff: 'Enable voice',
       close: 'Close',
       listening: 'I\'m listening… speak now.',
-      note: 'Leasy is ONYX\'s automatic assistant. For an exact quote, Lionel replies on WhatsApp.',
+      note: 'Leasy is an AI — messages are processed by an external service. For an exact quote, Lionel replies on WhatsApp.',
+      noteLocal: 'Leasy is ONYX\'s automatic assistant. For an exact quote, Lionel replies on WhatsApp.',
       chips: ['Services', 'Pricing', 'Portfolio', 'WhatsApp'],
       welcome: 'Hi 👋 I\'m Leasy, the ONYX studio assistant.\nI can tell you about services, timelines, pricing or the portfolio — and connect you with Lionel.',
       hint: 'Tip: tap the mic to talk to me 🎙️',
+      aiWelcome: 'You can also ask me general questions: advice, explanations, writing help.',
       micDenied: 'Microphone access is blocked. Allow the microphone in your browser, or just type your message.',
       micError: 'I couldn\'t start the microphone. Try again, or type your message.',
       waBtn: 'WhatsApp',
@@ -72,18 +76,21 @@
   var KB = [
     {
       id: 'human',
+      strict: true,
       kw: ['parler a lionel', 'parler a un humain', 'vrai personne', 'une personne', 'humain', 'un agent', 'quelqu un', 'human', 'real person', 'speak to lionel', 'talk to lionel', 'someone real', 'an agent'],
       fr: { text: 'Bien sûr. Le plus rapide : WhatsApp au +243 85 28 67 852 — c\'est Lionel qui répond directement.\nVous pouvez aussi m\'écrire votre demande ici : je la lui transmets.', actions: ['wa', 'email'] },
       en: { text: 'Of course. Fastest is WhatsApp on +243 85 28 67 852 — Lionel answers personally.\nYou can also tell me your request here and I\'ll pass it on.', actions: ['wa', 'email'] }
     },
     {
       id: 'identity',
+      strict: true,
       kw: ['qui es tu', 'tu es qui', 'ton nom', 'tu es une ia', 'une ia', 'ia', 'bot', 'assistant', 'intelligence artificielle', 'robot', 'chatbot', 'who are you', 'what are you', 'your name', 'are you human', 'are you a bot', 'are you ai'],
       fr: { text: 'Je suis Leasy, l\'assistant virtuel du studio ONYX. Je réponds instantanément aux questions courantes et je peux vous mettre en relation avec Lionel pour un devis.\nJe ne suis pas une personne — mais je connais bien le studio 🙂', actions: ['wa'] },
       en: { text: 'I\'m Leasy, the ONYX studio\'s virtual assistant. I answer common questions instantly and can connect you with Lionel for a quote.\nI\'m not a person — but I know the studio well 🙂', actions: ['wa'] }
     },
     {
       id: 'price',
+      strict: true,
       kw: ['prix', 'tarif', 'tarifs', 'combien', 'coute', 'cout', 'budget', 'devis', 'price', 'pricing', 'cost', 'how much', 'quote', 'rates'],
       boost: { words: ['combien', 'coute', 'cout', 'prix', 'tarif', 'devis', 'budget', 'price', 'pricing', 'cost', 'how much'], add: 2 },
       fr: { text: 'Chaque projet est chiffré sur mesure : tout dépend du nombre de pages, des fonctionnalités et du niveau de design.\nEnvoyez-moi 2 ou 3 lignes sur votre projet : vous recevrez un devis gratuit, sans engagement, sous 24 h.', actions: ['wa', 'email'] },
@@ -91,6 +98,7 @@
     },
     {
       id: 'delay',
+      strict: true,
       kw: ['delai', 'delais', 'duree', 'combien de temps', 'quand', 'rapide', 'deadline', 'how long', 'timeframe', 'when can', 'delay'],
       boost: { words: ['combien de temps', 'how long', 'delai', 'deadline', 'duree'], add: 3 },
       fr: { text: 'Les délais dépendent du périmètre. En général, un site vitrine se compte en semaines ; une application ou un logiciel en quelques semaines à quelques mois.\nAprès le brief, Lionel vous donne un planning précis, avec des étapes claires.', actions: ['wa'] },
@@ -152,6 +160,7 @@
     },
     {
       id: 'contact',
+      strict: true,
       kw: ['contact', 'whatsapp', 'numero', 'telephone', 'tel', 'email', 'mail', 'joindre', 'appeler', 'ecrire', 'contact you', 'phone', 'reach you', 'get in touch'],
       fr: { text: 'Le plus direct : WhatsApp au +243 85 28 67 852 — réponse généralement en moins de 24 h.\nSinon : lionelewene7@gmail.com. Vous pouvez aussi m\'écrire ici, je transmets.', actions: ['wa', 'email'] },
       en: { text: 'Fastest: WhatsApp on +243 85 28 67 852 — usually a reply within 24 hours.\nOr email: lionelewene7@gmail.com. You can also write here and I\'ll pass it on.', actions: ['wa', 'email'] }
@@ -176,6 +185,7 @@
     },
     {
       id: 'payment',
+      strict: true,
       kw: ['paiement', 'payer', 'mobile money', 'mpesa', 'orange money', 'virement', 'acompte', 'cash', 'payment', 'pay', 'deposit', 'transfer', 'installment'],
       fr: { text: 'Les modalités sont convenues au démarrage, généralement un acompte puis le solde à la livraison.\nDemandez les options disponibles (mobile money, virement…) sur WhatsApp.', actions: ['wa'] },
       en: { text: 'Terms are agreed at kick-off, usually a deposit then the balance on delivery.\nAsk about available options (mobile money, bank transfer…) on WhatsApp.', actions: ['wa'] }
@@ -188,30 +198,35 @@
     },
     {
       id: 'availability',
+      strict: true,
       kw: ['disponible', 'dispo', 'libre', 'commencer', 'demarrer', 'quand peut', 'availability', 'available', 'start', 'free', 'book'],
       fr: { text: 'Oui, le studio est disponible pour de nouveaux projets en 2026.\nLe plus simple : expliquez-moi votre idée en deux lignes, et Lionel revient vers vous rapidement.', actions: ['wa'] },
       en: { text: 'Yes, the studio is available for new projects in 2026.\nSimplest: tell me your idea in two lines and Lionel will get back to you quickly.', actions: ['wa'] }
     },
     {
       id: 'thanks',
+      strict: true,
       kw: ['merci', 'thanks', 'thank you', 'super', 'top', 'parfait', 'nickel', 'great', 'awesome'],
       fr: { text: 'Avec plaisir 🙌\nSi vous voulez avancer, je peux vous mettre en contact direct avec Lionel sur WhatsApp.', actions: ['wa'] },
       en: { text: 'You\'re welcome 🙌\nIf you\'d like to move forward, I can connect you directly with Lionel on WhatsApp.', actions: ['wa'] }
     },
     {
       id: 'bye',
+      strict: true,
       kw: ['au revoir', 'bye', 'a plus', 'bonne journee', 'bonne soiree', 'goodbye', 'see you', 'good night'],
       fr: { text: 'À bientôt ! Je reste disponible ici si vous avez une question. 👋', actions: [] },
       en: { text: 'See you soon! I\'ll be here if you have any questions. 👋', actions: [] }
     },
     {
       id: 'lang',
+      strict: true,
       kw: ['english', 'anglais', 'francais', 'french', 'langue', 'language', 'parlez vous', 'do you speak'],
       fr: { text: 'Je parle français et anglais.\nVous pouvez continuer en français, ou passer à la version anglaise du site via le menu.', actions: [] },
       en: { text: 'I speak French and English.\nYou can keep chatting in English, or switch to the French version via the menu.', actions: [] }
     },
     {
       id: 'greet',
+      strict: true,
       kw: ['bonjour', 'salut', 'bonsoir', 'coucou', 'hello', 'hi', 'hey', 'yo', 'bonne journée'],
       fr: { text: 'Bonjour 👋 Ravi de vous accueillir chez ONYX.\nVous cherchez un site, une application, un logo, ou juste des informations ?', actions: [] },
       en: { text: 'Hello 👋 Welcome to ONYX.\nAre you looking for a website, an app, a logo — or just some information?', actions: [] }
@@ -231,9 +246,9 @@
       .replace(/\s+/g, ' ').trim();
   }
 
-  function brain(raw) {
+  function matchIntent(raw) {
     var text = norm(raw);
-    if (!text) return FALLBACK[LANG];
+    if (!text) return null;
     var best = null, bestScore = 0;
     for (var i = 0; i < KB.length; i++) {
       var intent = KB[i], score = 0;
@@ -257,8 +272,188 @@
       }
       if (score > bestScore) { bestScore = score; best = intent; }
     }
-    if (!best || bestScore < 2) return FALLBACK[LANG];
-    return best[LANG] || FALLBACK[LANG];
+    return bestScore >= 2 ? best : null;
+  }
+
+  function brain(raw) {
+    var it = matchIntent(raw);
+    return it ? (it[LANG] || FALLBACK[LANG]) : FALLBACK[LANG];
+  }
+
+  /* ---------- IA générative (optionnelle, via leasy-config.js) ---------- */
+  var AI_DEFAULT = {
+    provider: 'none',
+    key: '',
+    model: 'gemini-2.5-flash',
+    endpoint: '',
+    timeout: 18000,
+    maxHistory: 8
+  };
+
+  function aiConfig() {
+    var src = window.LEASY_AI || {};
+    var cfg = {};
+    for (var k in AI_DEFAULT) {
+      cfg[k] = (src[k] !== undefined && src[k] !== null && src[k] !== '') ? src[k] : AI_DEFAULT[k];
+    }
+    cfg.provider = String(cfg.provider || 'none').toLowerCase();
+    if (cfg.provider === 'gemini' && !cfg.key) cfg.provider = 'none';
+    if ((cfg.provider === 'proxy' || cfg.provider === 'openai') && !cfg.endpoint) cfg.provider = 'none';
+    return cfg;
+  }
+
+  function aiEnabled() {
+    return typeof fetch === 'function' && aiConfig().provider !== 'none';
+  }
+
+  var SYS = {
+    fr: [
+      "Tu es Leasy, l'assistante du studio ONYX, fondé par Lionel Ewene Monzia (développeur web & designer UI/UX, basé en RD Congo, travail à distance partout dans le monde).",
+      "Ton : chaleureux, professionnel, direct. Réponds en français, en 2 à 4 phrases maximum, sans markdown ni listes à puces, avec au plus un emoji.",
+      "Tu peux répondre à toutes sortes de questions : technologie, design, entrepreneuriat, rédaction, conseils, culture générale. Si la question est hors sujet, réponds quand même utilement, sans faire de publicité.",
+      "Faits sur ONYX (à utiliser sans inventer) :",
+      "- Services : sites web (vitrine, e-commerce), applications mobiles (iOS/Android, React Native), logiciels sur mesure, design UI/UX (Figma), identité visuelle (logo, charte), print (affiches, invitations).",
+      "- Méthode : découverte, direction, création, livraison.",
+      "- Portfolio : plateforme e-commerce (React/Node), application de livraison avec suivi en temps réel (React Native/Firebase), campagne visuelle (affiches et invitations).",
+      "- Contact : WhatsApp +243 85 28 67 852, email lionelewene7@gmail.com. Réponse sous 24 h.",
+      "- Tarifs : sur mesure, devis gratuit. Ne donne jamais de prix précis.",
+      "- Délais : variables ; ne promets pas de date précise, Lionel confirme après le brief.",
+      "Règles :",
+      "- N'invente jamais un prix, un délai, un client ou un fait sur ONYX.",
+      "- Pour un devis ou une demande précise, invite à passer sur WhatsApp.",
+      "- Ne demande jamais d'informations sensibles (mot de passe, carte bancaire).",
+      "- Si l'utilisateur est impoli, reste calme et professionnel."
+    ].join('\n'),
+    en: [
+      "You are Leasy, the assistant of ONYX studio, founded by Lionel Ewene Monzia (web developer & UI/UX designer, based in DR Congo, working remotely worldwide).",
+      "Tone: warm, professional, direct. Reply in English, in 2 to 4 sentences maximum, no markdown or bullet lists, with at most one emoji.",
+      "You can answer all kinds of questions: technology, design, entrepreneurship, writing, advice, general knowledge. If the question is off-topic, still answer usefully without promoting the studio.",
+      "Facts about ONYX (never invent):",
+      "- Services: websites (showcase, e-commerce), mobile apps (iOS/Android, React Native), custom software, UI/UX design (Figma), visual identity (logo, guidelines), print (posters, invitations).",
+      "- Method: discovery, direction, creation, delivery.",
+      "- Portfolio: e-commerce platform (React/Node), delivery app with real-time tracking (React Native/Firebase), visual campaign (posters and invitations).",
+      "- Contact: WhatsApp +243 85 28 67 852, email lionelewene7@gmail.com. Reply within 24 hours.",
+      "- Pricing: custom, free quote. Never give a precise price.",
+      "- Timelines: variable; never promise a precise date, Lionel confirms after the brief.",
+      "Rules:",
+      "- Never invent a price, timeline, client or fact about ONYX.",
+      "- For a quote or a precise request, invite the user to WhatsApp.",
+      "- Never ask for sensitive information (passwords, bank cards).",
+      "- If the user is rude, stay calm and professional."
+    ].join('\n')
+  };
+
+  function sanitizeReply(t) {
+    if (!t) return '';
+    return String(t)
+      .replace(/\*\*(.+?)\*\*/g, '$1')
+      .replace(/__(.+?)__/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/^\s{0,3}#{1,6}\s+/gm, '')
+      .replace(/^\s*[-*]\s+/gm, '• ')
+      .replace(/[ \t]+\n/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+      .slice(0, 900);
+  }
+
+  function aiHistory(cfg) {
+    var out = [];
+    var slice = history.slice(-(cfg.maxHistory || 8));
+    for (var i = 0; i < slice.length; i++) {
+      var m = slice[i];
+      if (!m || !m.text) continue;
+      out.push({ role: m.role === 'user' ? 'user' : 'assistant', text: m.text });
+    }
+    while (out.length && out[0].role !== 'user') out.shift();
+    return out;
+  }
+
+  function geminiContents(cfg) {
+    var msgs = aiHistory(cfg), out = [];
+    for (var i = 0; i < msgs.length; i++) {
+      var role = msgs[i].role === 'user' ? 'user' : 'model';
+      if (out.length && out[out.length - 1].role === role) {
+        out[out.length - 1].parts[0].text += '\n' + msgs[i].text;
+      } else {
+        out.push({ role: role, parts: [{ text: msgs[i].text }] });
+      }
+    }
+    return out;
+  }
+
+  function openaiMessages(cfg) {
+    var msgs = aiHistory(cfg), out = [{ role: 'system', content: SYS[LANG] }];
+    for (var i = 0; i < msgs.length; i++) out.push({ role: msgs[i].role, content: msgs[i].text });
+    return out;
+  }
+
+  var aiController = null;
+
+  function askAI() {
+    var cfg = aiConfig();
+    if (cfg.provider === 'none' || typeof fetch !== 'function') return Promise.resolve(null);
+    if (aiController) { try { aiController.abort(); } catch (e) {} }
+    var ctrl = null;
+    try { ctrl = new AbortController(); aiController = ctrl; } catch (e) {}
+
+    var url, body, headers = { 'Content-Type': 'application/json' };
+
+    if (cfg.provider === 'gemini') {
+      var base = cfg.endpoint || ('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(cfg.model) + ':generateContent');
+      url = base + (base.indexOf('?') >= 0 ? '&' : '?') + 'key=' + encodeURIComponent(cfg.key);
+      body = {
+        systemInstruction: { parts: [{ text: SYS[LANG] }] },
+        contents: geminiContents(cfg),
+        generationConfig: { temperature: 0.75, maxOutputTokens: 500, topP: 0.95 }
+      };
+    } else {
+      url = cfg.endpoint;
+      if (cfg.key) headers['Authorization'] = 'Bearer ' + cfg.key;
+      body = {
+        model: cfg.model || 'gpt-4o-mini',
+        messages: openaiMessages(cfg),
+        temperature: 0.75,
+        max_tokens: 500
+      };
+    }
+
+    var opts = { method: 'POST', headers: headers, body: JSON.stringify(body) };
+    if (ctrl) opts.signal = ctrl.signal;
+
+    return new Promise(function (resolve) {
+      var done = false;
+      var timer = window.setTimeout(function () {
+        if (ctrl) { try { ctrl.abort(); } catch (e) {} }
+        finish(null);
+      }, cfg.timeout || 18000);
+
+      function finish(v) {
+        if (done) return;
+        done = true;
+        window.clearTimeout(timer);
+        if (aiController === ctrl) aiController = null;
+        resolve(v);
+      }
+
+      fetch(url, opts).then(function (r) {
+        if (!r.ok) { finish(null); return null; }
+        return r.json();
+      }).then(function (data) {
+        if (!data) return;
+        var txt = '';
+        if (cfg.provider === 'gemini') {
+          var cand = data.candidates && data.candidates[0];
+          if (cand && cand.content && cand.content.parts) {
+            txt = cand.content.parts.map(function (p) { return p && p.text ? p.text : ''; }).join('');
+          }
+        } else {
+          txt = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content
+            ? data.choices[0].message.content : '';
+        }
+        finish(sanitizeReply(txt) || null);
+      }).catch(function () { finish(null); });
+    });
   }
 
   /* ---------- Liens ---------- */
@@ -317,7 +512,7 @@
         '<input class="leasy-input" type="text" inputmode="text" enterkeyhint="send" placeholder="' + UI.placeholder + '" aria-label="' + UI.placeholder + '" maxlength="500">' +
         '<button class="leasy-send" type="submit" aria-label="' + UI.send + '" title="' + UI.send + '">' + I.send + '</button>' +
       '</form>' +
-      '<p class="leasy-note">' + UI.note + '</p>' +
+      '<p class="leasy-note">' + (aiEnabled() ? UI.note : UI.noteLocal) + '</p>' +
     '</section>';
   document.body.appendChild(root);
 
@@ -421,17 +616,46 @@
     if (el && el.parentNode) el.parentNode.removeChild(el);
   }
 
-  function reply(text) {
+  var aiSeq = 0;
+
+  function localReply(intent, seq) {
+    var res = intent ? (intent[LANG] || FALLBACK[LANG]) : FALLBACK[LANG];
     pending++;
     var typing = showTyping();
-    var delay = 380 + Math.min(700, text.length * 5);
+    var delay = 380 + Math.min(700, res.text.length * 5);
     window.setTimeout(function () {
       pending--;
-      if (pending === 0) removeTyping(typing);
-      var res = brain(text);
+      removeTyping(typing);
+      if (seq !== aiSeq) return;
       addMsg('bot', res.text, res.actions);
       if (voiceOn) speak(res.text);
     }, delay);
+  }
+
+  function reply(text) {
+    var seq = ++aiSeq;
+    var intent = matchIntent(text);
+
+    /* Les infos sensibles (prix, contact, délais…) restent exactes et locales. */
+    if (intent && intent.strict) { localReply(intent, seq); return; }
+    if (!aiEnabled()) { localReply(intent, seq); return; }
+
+    pending++;
+    var typing = showTyping();
+    askAI().then(function (txt) {
+      pending--;
+      removeTyping(typing);
+      if (seq !== aiSeq) return;
+      if (txt) {
+        addMsg('bot', txt);
+        if (voiceOn) speak(txt);
+      } else {
+        /* Service d'IA indisponible : on répond avec la base locale. */
+        var res = intent ? (intent[LANG] || FALLBACK[LANG]) : FALLBACK[LANG];
+        addMsg('bot', res.text, res.actions);
+        if (voiceOn) speak(res.text);
+      }
+    });
   }
 
   function send(text) {
@@ -495,6 +719,8 @@
     return (text || '')
       .replace(/[\uD800-\uDFFF\u2600-\u27BF]/g, ' ')
       .replace(/[•·]/g, ', ')
+      /* Prononciation : « Ewene » se dit « Éwéné » */
+      .replace(/\bEwene\b/gi, 'Éwéné')
       .replace(/\s+/g, ' ')
       .trim();
   }
@@ -599,8 +825,9 @@
   function greet() {
     if (greeted) return;
     greeted = true;
-    addMsg('bot', UI.welcome);
-    if (voiceOn) speak(UI.welcome);
+    var welcome = UI.welcome + (aiEnabled() ? '\n' + UI.aiWelcome : '');
+    addMsg('bot', welcome);
+    if (voiceOn) speak(welcome);
     if (SR) {
       window.setTimeout(function () {
         addMsg('bot', UI.hint);
