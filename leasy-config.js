@@ -1,31 +1,24 @@
 /* ============================================================
    LEASY — configuration de l'IA
    ------------------------------------------------------------
-   1) MODE IA (recommandé)
-      - Créez une clé gratuite : https://aistudio.google.com/apikey
-      - Restreignez-la à votre site dans Google Cloud :
-        Identifiants > votre clé > Restrictions > Sites web
-        (ajoutez https://lionelewene7-star.github.io)
-      - Collez la clé ci-dessous, puis poussez le fichier.
-      Modèle conseillé : gemini-2.5-flash
+   Leasy passe par une Cloudflare Pages Function dédiée :
+     https://leasy-onyx.pages.dev/api/chat
+   La clé Gemini reste côté serveur (secret Cloudflare).
+   Le site public ne contient aucune clé.
 
-   2) MODE LOCAL (aucune clé)
-      - Laissez key vide : Leasy utilise sa base intégrée.
+   Pour changer de moteur :
+   - provider: 'proxy'  + endpoint: 'https://.../api/chat'
+   - provider: 'gemini' + key: '...' (clé visible : à éviter)
+   - provider: 'none'   → mode local uniquement
 
-   3) PROXY SÉCURISÉ (clé cachée côté serveur)
-      - provider: 'proxy'
-      - endpoint: 'https://votre-worker.workers.dev/chat'
-      - key: '' (la clé reste dans le Worker Cloudflare)
-
-   La clé est visible dans le code source : la restriction par
-   site web est indispensable. Pour une sécurité totale, utilisez
-   un proxy (option 3).
+   En cas de panne du service, Leasy répond automatiquement
+   avec sa base locale (services, tarifs, contact, délais).
    ============================================================ */
 window.LEASY_AI = {
-  provider: 'gemini',
+  provider: 'proxy',
   key: '',
-  model: 'gemini-2.5-flash',
-  endpoint: '',
-  timeout: 18000,
+  model: 'leasy',
+  endpoint: 'https://leasy-onyx.pages.dev/api/chat',
+  timeout: 30000,
   maxHistory: 8
 };
