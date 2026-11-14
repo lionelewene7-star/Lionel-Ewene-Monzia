@@ -299,7 +299,7 @@
   root.innerHTML =
     '<button class="leasy-launcher" type="button" aria-label="' + UI.open + '" aria-expanded="false" aria-controls="leasy-panel">' +
       '<span class="leasy-launcher-label">' + UI.open + '</span>' +
-      I.chat +
+      '<span class="leasy-ia" aria-hidden="true">' + (LANG === 'en' ? 'AI' : 'IA') + '</span>' +
       '<span class="leasy-dot" aria-hidden="true"></span>' +
     '</button>' +
     '<section id="leasy-panel" class="leasy-panel" role="dialog" aria-modal="false" aria-label="Leasy — ' + UI.subtitle + '" aria-hidden="true">' +

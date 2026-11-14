@@ -66,6 +66,17 @@
   height: 27px;
   display: block;
 }
+.leasy-ia {
+  display: block;
+  font-family: 'Syne', 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  padding-bottom: 1px;
+  text-indent: 0.4px;
+  user-select: none;
+}
 .leasy-launcher::after {
   content: '';
   position: absolute;
