@@ -395,10 +395,85 @@
     /* Mobile menu */
     .mobile-menu {
       transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+      pointer-events: none;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.4s;
     }
     .mobile-menu.open {
       transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+      background: rgba(12, 12, 16, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+    }
+    .mobile-menu-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 4px;
+      margin: 0 -4px;
+      border-radius: 8px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .mobile-nav-link:active {
+      background: rgba(15, 118, 110, 0.10);
+    }
+    #menu-toggle,
+    #menu-close {
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s ease;
+    }
+    #menu-close {
+      display: inline-flex;
+    }
+    @media (max-width: 767.98px) {
+      #menu-toggle {
+        display: inline-flex;
+      }
+    }
+    #menu-toggle {
+      margin: -9px -12px -9px 0;
+    }
+    #menu-toggle:hover,
+    #menu-close:hover {
+      background: rgba(18, 18, 28, 0.06);
+    }
+    #menu-toggle:active,
+    #menu-close:active {
+      background: rgba(18, 18, 28, 0.10);
+    }
+    html.menu-open,
+    body.menu-open {
+      overflow: hidden;
+    }
+    .toast {
+      pointer-events: none;
+    }
+    .toast.show {
+      pointer-events: auto;
     }
 
     /* Counter animation */
@@ -586,18 +661,19 @@
   <div class="gradient-orb orb-3"></div>
   <canvas id="particles"></canvas>
   <a href="#hero" class="skip-link">Aller au contenu principal</a>
-  <div id="app-wrapper" style="position:relative; z-index:1; width:100%;"><!-- Navigation -->
+  <div id="app-wrapper" style="position:relative; z-index:1; width:100%; overflow-x:clip;"><!-- Navigation -->
    <nav id="main-nav" style="position:fixed; top:0; left:0; right:0; z-index:100; transition: background 0.3s, backdrop-filter 0.3s;">
     <div style="max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; align-items:center; justify-content:space-between;"><a href="index.html" class="magnetic" style="display:flex; align-items:center; gap:12px; text-decoration:none;" aria-label="Lionel Ewene Monzia — accueil">
      <img src="favicon-96x96.png" alt="" class="brand-logo" width="42" height="42">
      <span class="font-heading" style="font-size:24px; font-weight:800; color:var(--text);"> L<span class="text-gradient">.</span>E<span class="text-gradient">.</span>M </span>
     </a>
      <div class="hidden md:flex items-center gap-8"><a href="#about" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">À propos</a> <a href="#services" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Services</a> <a href="#skills" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Compétences</a> <a href="#projects" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Projets</a> <a href="#contact" class="nav-link" style="color:var(--text); text-decoration:none; font-size:14px; letter-spacing:1px; text-transform:uppercase;">Contact</a> <a href="index-en.html" class="magnetic" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:50px; color:var(--text); text-decoration:none; font-size:12px; letter-spacing:1px; text-transform:uppercase; border:1px solid rgba(18,18,28,0.2); white-space:nowrap;"> EN <span style="opacity:0.6">|</span> FR </a>
-     </div><button id="menu-toggle" class="md:hidden" style="background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Menu"> <i data-lucide="menu" style="width:28px;height:28px;"></i> </button>
+     </div><button id="menu-toggle" class="md:hidden" style="background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"> <i data-lucide="menu" style="width:28px;height:28px;"></i> </button>
     </div>
    </nav><!-- Mobile Menu -->
-   <div id="mobile-menu" class="mobile-menu" style="position:fixed; top:0; right:0; width:280px; height:100%; background:var(--surface); z-index:200; padding:80px 32px 32px;"><button id="menu-close" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Fermer"> <i data-lucide="x" style="width:28px;height:28px;"></i> </button>
-    <div style="display:flex; flex-direction:column; gap:24px;"><a href="index.html" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Studio ONYX</a> <a href="#about" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">À propos</a> <a href="#services" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Services</a> <a href="#skills" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Compétences</a> <a href="#projects" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Projets</a> <a href="#contact" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Contact</a> <a href="index-en.html" class="mobile-nav-link" style="color:var(--accent2); text-decoration:none; font-size:16px; font-weight:600; letter-spacing:1px;">English &rarr;</a>
+   <div id="mobile-menu-backdrop" class="mobile-menu-backdrop" aria-hidden="true"></div>
+   <div id="mobile-menu" class="mobile-menu" style="position:fixed; top:0; right:0; width:min(320px, 88vw); height:100%; max-height:100dvh; background:var(--surface); z-index:200; padding:80px 24px 32px; box-shadow:-24px 0 60px rgba(12,12,16,0.12);"><button id="menu-close" style="position:absolute; top:12px; right:12px; background:none; border:none; color:var(--text); cursor:pointer;" aria-label="Fermer le menu"> <i data-lucide="x" style="width:28px;height:28px;"></i> </button>
+    <div style="display:flex; flex-direction:column; gap:6px;"><a href="index.html" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Studio ONYX</a> <a href="#about" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">À propos</a> <a href="#services" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Services</a> <a href="#skills" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Compétences</a> <a href="#projects" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Projets</a> <a href="#contact" class="mobile-nav-link font-heading" style="color:var(--text); text-decoration:none; font-size:22px; font-weight:600;">Contact</a> <a href="index-en.html" class="mobile-nav-link" style="color:var(--accent2); text-decoration:none; font-size:16px; font-weight:600; letter-spacing:1px; margin-top:12px; border-top:1px solid rgba(18,18,28,0.10); padding-top:20px; border-radius:0;">English &rarr;</a>
     </div>
    </div><!-- Hero Section -->
    <section id="hero" class="hero-full" style="display:flex; align-items:center; padding:120px 24px 80px;">
@@ -1039,7 +1115,7 @@
     let particles = [];
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth;
+      canvas.width = document.documentElement.clientWidth;
       canvas.height = window.innerHeight;
     }
     resizeCanvas();
@@ -1192,10 +1268,27 @@
 
     // ========== MOBILE MENU ==========
     const mobileMenu = document.getElementById('mobile-menu');
-    document.getElementById('menu-toggle').addEventListener('click', () => mobileMenu.classList.add('open'));
-    document.getElementById('menu-close').addEventListener('click', () => mobileMenu.classList.remove('open'));
+    const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    function setMenu(open) {
+      mobileMenu.classList.toggle('open', open);
+      mobileBackdrop.classList.toggle('open', open);
+      document.documentElement.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+    }
+    menuToggle.addEventListener('click', () => setMenu(true));
+    menuClose.addEventListener('click', () => setMenu(false));
+    mobileBackdrop.addEventListener('click', () => setMenu(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) setMenu(false);
+    });
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      link.addEventListener('click', () => setMenu(false));
     });
 
     // ========== SMOOTH SCROLL (document) ==========
