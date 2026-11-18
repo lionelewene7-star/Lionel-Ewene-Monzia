@@ -20,6 +20,7 @@ window.LEASY_AI = {
   model: 'leasy',
   endpoint: 'https://leasy-advanced.pages.dev/api/chat',
   fileEndpoint: 'https://leasy-advanced.pages.dev/api/file',
+  reminderEndpoint: 'https://leasy-advanced.pages.dev/api/reminder',
   conversationId: 'lionel',
   timeout: 30000,
   maxHistory: 8
