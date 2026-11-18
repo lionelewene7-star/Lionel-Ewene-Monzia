@@ -1,8 +1,8 @@
 /* ============================================================
    LEASY — configuration de l'IA
    ------------------------------------------------------------
-   Leasy passe par une Cloudflare Pages Function dédiée :
-     https://leasy-onyx.pages.dev/api/chat
+   Leasy passe par la Cloudflare Pages Function de Leasy Advanced :
+     https://leasy-advanced.pages.dev/api/chat
    La clé Gemini reste côté serveur (secret Cloudflare).
    Le site public ne contient aucune clé.
 
@@ -18,7 +18,7 @@ window.LEASY_AI = {
   provider: 'proxy',
   key: '',
   model: 'leasy',
-  endpoint: 'https://leasy-onyx.pages.dev/api/chat',
+  endpoint: 'https://leasy-advanced.pages.dev/api/chat',
   timeout: 30000,
   maxHistory: 8
 };

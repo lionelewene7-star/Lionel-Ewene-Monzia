@@ -719,8 +719,9 @@
     return (text || '')
       .replace(/[\uD800-\uDFFF\u2600-\u27BF]/g, ' ')
       .replace(/[•·]/g, ', ')
-      /* Prononciation : « Ewene » se dit « Éwéné » */
+      /* Prononciation : « Ewene » se dit « Éwéné », « Leasy » se dit « Lizi » */
       .replace(/\bEwene\b/gi, 'Éwéné')
+      .replace(/\bLeasy\b/gi, 'Lizi')
       .replace(/\s+/g, ' ')
       .trim();
   }
