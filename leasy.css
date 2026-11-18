@@ -375,6 +375,39 @@
 .leasy-attach-delete:hover,
 .leasy-msg-delete:hover { color: #B42318; border-color: #B42318; }
 
+.leasy-attach-delete,
+.leasy-msg-delete { display: none !important; }
+
+.leasy-ctx-menu {
+  position: absolute;
+  z-index: 30;
+  min-width: 175px;
+  padding: 5px;
+  border: 1px solid var(--leasy-line);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 32, 39, 0.18);
+}
+.leasy-ctx-menu[hidden] { display: none; }
+.leasy-ctx-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--leasy-ink);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.leasy-ctx-menu button:hover,
+.leasy-ctx-menu button:focus-visible {
+  background: #fff1f0;
+  color: #B42318;
+  outline: none;
+}
+
 /* Actions dans les réponses */
 .leasy-actions {
   display: flex;

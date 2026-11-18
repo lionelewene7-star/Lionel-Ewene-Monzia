@@ -532,6 +532,7 @@
         '<button class="leasy-send" type="submit" aria-label="' + UI.send + '" title="' + UI.send + '">' + I.send + '</button>' +
       '</form>' +
       '<p class="leasy-note">' + (aiEnabled() ? UI.note : UI.noteLocal) + '</p>' +
+      '<div class="leasy-ctx-menu" hidden></div>' +
     '</section>';
   document.body.appendChild(root);
 
@@ -547,6 +548,7 @@
   var voiceBtn = root.querySelector('.leasy-voice');
   var closeBtn = root.querySelector('.leasy-close');
   var chipsBox = root.querySelector('.leasy-chips');
+  var ctxMenu = root.querySelector('.leasy-ctx-menu');
 
   /* ---------- Historique ---------- */
   var history = [];
@@ -588,6 +590,94 @@
     }).catch(function () {});
   }
 
+  function memoryEndpoint() {
+    var cfg = window.LEASY_AI || {};
+    return cfg.endpoint ? cfg.endpoint.replace(/\/chat$/, '/memory') : '/api/memory';
+  }
+
+  function deleteLastFile(onlyImages) {
+    var cfg = window.LEASY_AI || {};
+    return fetch(memoryEndpoint() + '?conversationId=' +
+      encodeURIComponent(cfg.conversationId || 'lionel')).then(function (r) {
+        return r.ok ? r.json() : { messages: [] };
+      }).then(function (data) {
+        var messages = data.messages || [];
+        var target = null;
+        for (var i = messages.length - 1; i >= 0 && !target; i--) {
+          var atts = messages[i].attachments || [];
+          for (var j = atts.length - 1; j >= 0; j--) {
+            var a = atts[j];
+            if (!a || !a.id) continue;
+            var isImage = a.kind === 'image' || /^image\//i.test(a.mimeType || '');
+            if (!onlyImages || isImage) { target = a; break; }
+          }
+        }
+        if (!target) {
+          addMsg('bot', onlyImages ? 'Aucune image mémorisée.' : 'Aucun fichier mémorisé.');
+          if (voiceOn) speak(onlyImages ? 'Aucune image mémorisée.' : 'Aucun fichier mémorisé.');
+          return false;
+        }
+        var url = (cfg.fileEndpoint || 'https://leasy-advanced.pages.dev/api/file') +
+          '?id=' + encodeURIComponent(target.id) + '&conversationId=' +
+          encodeURIComponent(cfg.conversationId || 'lionel');
+        return fetch(url, { method: 'DELETE' }).then(function (r) {
+          if (!r.ok) return false;
+          addMsg('bot', 'Dernier' + (onlyImages ? ' image' : ' fichier') + ' supprimé : ' +
+            (target.name || target.id) + '.');
+          if (voiceOn) speak('Dernier' + (onlyImages ? ' image' : ' fichier') + ' supprimé, Sir.');
+          return true;
+        });
+      }).catch(function () { return false; });
+  }
+
+  function hideCtxMenu() {
+    if (!ctxMenu) return;
+    ctxMenu.hidden = true;
+    ctxMenu.innerHTML = '';
+  }
+
+  function showCtxMenu(x, y, items) {
+    if (!ctxMenu || !items.length) return;
+    ctxMenu.innerHTML = '';
+    items.forEach(function (item) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = item.label;
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hideCtxMenu();
+        item.action();
+      });
+      ctxMenu.appendChild(button);
+    });
+    ctxMenu.hidden = false;
+    var rect = panel.getBoundingClientRect();
+    var width = ctxMenu.offsetWidth || 170;
+    var height = ctxMenu.offsetHeight || 80;
+    ctxMenu.style.left = Math.min(x - rect.left, rect.width - width - 8) + 'px';
+    ctxMenu.style.top = Math.min(y - rect.top, rect.height - height - 8) + 'px';
+  }
+
+  function contextItemsFromTarget(target) {
+    var attachment = target && target.closest ? target.closest('.leasy-attachment-item') : null;
+    if (attachment && attachment.getAttribute('data-file-id')) {
+      return [{
+        label: 'Supprimer ce fichier',
+        action: function () { deleteAttachment(attachment.getAttribute('data-file-id'), attachment); }
+      }];
+    }
+    var message = target && target.closest ? target.closest('.leasy-msg') : null;
+    if (message && message.getAttribute('data-role') && message.hasAttribute('data-text')) {
+      return [{
+        label: 'Supprimer ce message',
+        action: function () {
+          deleteMessage(message.getAttribute('data-role'), message.getAttribute('data-text'), message);
+        }
+      }];
+    }
+    return [];
+  }
+
   function renderAttachments(wrap, attachments) {
     if (!attachments || !attachments.length) return;
     var row = document.createElement('div');
@@ -596,6 +686,7 @@
       if (!file || !file.id) return;
       var item = document.createElement('span');
       item.className = 'leasy-attachment-item';
+      item.setAttribute('data-file-id', file.id);
       var base = (window.LEASY_AI && window.LEASY_AI.fileEndpoint) ||
         'https://leasy-advanced.pages.dev/api/file';
       var url = base + '?id=' + encodeURIComponent(file.id);
@@ -643,6 +734,8 @@
 
     var wrap = document.createElement('div');
     wrap.className = 'leasy-msg ' + role;
+    wrap.setAttribute('data-role', role);
+    wrap.setAttribute('data-text', text);
 
     var bubble = document.createElement('div');
     bubble.className = 'leasy-bubble';
@@ -770,9 +863,23 @@
     });
   }
 
+  function deleteCommandTarget(text) {
+    var c = String(text || '').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (/(supprime|supprimer|efface|effacer)\s+(le dernier|la derniere)\s+image/.test(c)) return 'image';
+    if (/(supprime|supprimer|efface|effacer)\s+(le dernier|la derniere)\s+(fichier|document)/.test(c)) return 'file';
+    return false;
+  }
+
   function send(text) {
     text = (text || '').replace(/\s+/g, ' ').trim();
     if (!text) return;
+    var deleteTarget = deleteCommandTarget(text);
+    if (deleteTarget) {
+      deleteLastFile(deleteTarget === 'image');
+      return;
+    }
     addMsg('user', text);
     input.value = '';
     updateSend();
@@ -1059,6 +1166,61 @@
       send(input.value);
     }
   });
+
+  // Clic droit / appui long pour supprimer un message ou un fichier.
+  log.addEventListener('contextmenu', function (e) {
+    var items = contextItemsFromTarget(e.target);
+    if (!items.length) return;
+    e.preventDefault();
+    showCtxMenu(e.clientX, e.clientY, items);
+  });
+
+  var pressTimer = null;
+  var pressPoint = null;
+  var longPressFired = false;
+  log.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) return;
+    var touch = e.touches[0];
+    var items = contextItemsFromTarget(touch.target);
+    if (!items.length) return;
+    longPressFired = false;
+    pressPoint = { x: touch.clientX, y: touch.clientY };
+    pressTimer = window.setTimeout(function () {
+      pressTimer = null;
+      longPressFired = true;
+      showCtxMenu(pressPoint.x, pressPoint.y, items);
+      if (navigator.vibrate) navigator.vibrate(30);
+    }, 550);
+  }, { passive: true });
+  log.addEventListener('touchmove', function (e) {
+    if (!pressTimer || !pressPoint || e.touches.length !== 1) return;
+    var touch = e.touches[0];
+    if (Math.abs(touch.clientX - pressPoint.x) > 12 ||
+        Math.abs(touch.clientY - pressPoint.y) > 12) {
+      window.clearTimeout(pressTimer);
+      pressTimer = null;
+    }
+  }, { passive: true });
+  var cancelPress = function () {
+    if (pressTimer) window.clearTimeout(pressTimer);
+    pressTimer = null;
+  };
+  log.addEventListener('touchend', cancelPress, { passive: true });
+  log.addEventListener('touchcancel', cancelPress, { passive: true });
+  log.addEventListener('click', function (e) {
+    if (longPressFired) {
+      e.preventDefault();
+      e.stopPropagation();
+      longPressFired = false;
+    }
+  }, true);
+  document.addEventListener('click', function (e) {
+    if (ctxMenu && !ctxMenu.hidden && !ctxMenu.contains(e.target)) hideCtxMenu();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') hideCtxMenu();
+  });
+  log.addEventListener('scroll', hideCtxMenu, { passive: true });
 
   voiceBtn.addEventListener('click', function () { setVoice(!voiceOn); });
 
