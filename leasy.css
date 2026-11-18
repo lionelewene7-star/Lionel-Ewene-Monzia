@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LEASY — assistant du studio ONYX
    Palette : papier / encre / teal (alignée sur le site)
    ============================================================ */
@@ -313,6 +313,40 @@
   color: #fff;
 }
 
+/* Fichiers mémorisés */
+.leasy-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.leasy-thumb {
+  display: block;
+  width: 74px;
+  height: 74px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--leasy-line);
+  background: #fff;
+}
+.leasy-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.leasy-file-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 200px;
+  padding: 6px 9px;
+  border-radius: 9px;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  color: var(--leasy-teal);
+  text-decoration: none;
+  font-size: 12px;
+}
+.leasy-file-link:hover { background: rgba(15, 118, 110, 0.16); }
+.leasy-file-link svg { width: 14px; height: 14px; flex: none; }
+.leasy-file-link span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
 /* Actions dans les réponses */
 .leasy-actions {
   display: flex;
@@ -433,6 +467,7 @@
 }
 
 .leasy-mic,
+.leasy-attach,
 .leasy-send {
   display: inline-grid;
   place-items: center;
@@ -453,8 +488,10 @@
   border: 1px solid var(--leasy-line);
 }
 .leasy-mic:hover { background: rgba(15, 118, 110, 0.08); color: var(--leasy-teal); }
+.leasy-attach { background: transparent; color: var(--leasy-ink); border: 1px solid var(--leasy-line); }
+.leasy-attach:hover { background: rgba(15, 118, 110, 0.08); color: var(--leasy-teal); }
 .leasy-mic[hidden] { display: none; }
-.leasy-mic svg, .leasy-send svg { width: 20px; height: 20px; display: block; }
+.leasy-mic svg, .leasy-attach svg, .leasy-send svg { width: 20px; height: 20px; display: block; }
 .leasy-mic.listening {
   background: #B42318;
   border-color: #B42318;
