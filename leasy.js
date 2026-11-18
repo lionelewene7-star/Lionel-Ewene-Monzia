@@ -416,9 +416,12 @@
       body = {
         model: cfg.model || 'gpt-4o-mini',
         messages: openaiMessages(cfg),
+        conversationId: cfg.conversationId || 'lionel',
         temperature: 0.75,
         max_tokens: 500
       };
+      if (attachments && attachments.images && attachments.images.length) body.images = attachments.images;
+      if (attachments && attachments.files && attachments.files.length) body.files = attachments.files;
     }
 
     var opts = { method: 'POST', headers: headers, body: JSON.stringify(body) };
@@ -495,6 +498,9 @@
     volume: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>',
     mute: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>',
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+    attach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 11-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 6"/></svg>',
+    file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6"/></svg>',
+    trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v5M14 11v5"/></svg>',
     phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg>'
   };
 
@@ -551,7 +557,87 @@
     log.scrollTop = log.scrollHeight;
   }
 
-  function addMsg(role, text, actions) {
+  function deleteAttachment(id, node) {
+    if (!id) return;
+    var cfg = window.LEASY_AI || {};
+    var url = (cfg.fileEndpoint || 'https://leasy-advanced.pages.dev/api/file') +
+      '?id=' + encodeURIComponent(id) + '&conversationId=' +
+      encodeURIComponent(cfg.conversationId || 'lionel');
+    fetch(url, { method: 'DELETE' }).then(function (r) {
+      if (!r.ok) return;
+      if (node && node.parentNode) node.parentNode.removeChild(node);
+    }).catch(function () {});
+  }
+
+  function deleteMessage(role, text, node) {
+    var cfg = window.LEASY_AI || {};
+    var apiRole = role === 'bot' ? 'assistant' : role;
+    fetch(cfg.endpoint ? cfg.endpoint.replace(/\/chat$/, '/memory') : '/api/memory', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'deleteMessage',
+        conversationId: cfg.conversationId || 'lionel',
+        role: apiRole,
+        content: text
+      })
+    }).then(function (r) {
+      if (!r.ok) return;
+      history = history.filter(function (m) { return !(m.role === role && m.text === text); });
+      if (node && node.parentNode) node.parentNode.removeChild(node);
+    }).catch(function () {});
+  }
+
+  function renderAttachments(wrap, attachments) {
+    if (!attachments || !attachments.length) return;
+    var row = document.createElement('div');
+    row.className = 'leasy-attachments';
+    attachments.forEach(function (file) {
+      if (!file || !file.id) return;
+      var item = document.createElement('span');
+      item.className = 'leasy-attachment-item';
+      var base = (window.LEASY_AI && window.LEASY_AI.fileEndpoint) ||
+        'https://leasy-advanced.pages.dev/api/file';
+      var url = base + '?id=' + encodeURIComponent(file.id);
+      if (file.kind === 'image' || /^image\//i.test(file.mimeType || '')) {
+        var thumb = document.createElement('a');
+        thumb.className = 'leasy-thumb';
+        thumb.href = url;
+        thumb.target = '_blank';
+        thumb.rel = 'noopener noreferrer';
+        var img = document.createElement('img');
+        img.src = url;
+        img.alt = file.name || 'image';
+        thumb.appendChild(img);
+        item.appendChild(thumb);
+      } else {
+        var link = document.createElement('a');
+        link.className = 'leasy-file-link';
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = I.file + '<span></span>';
+        link.querySelector('span').textContent = file.name || 'fichier';
+        item.appendChild(link);
+      }
+      var del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'leasy-attach-delete';
+      del.title = 'Supprimer ce fichier';
+      del.setAttribute('aria-label', 'Supprimer ce fichier');
+      del.innerHTML = I.trash;
+      del.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        deleteAttachment(file.id, item);
+      });
+      item.appendChild(del);
+      row.appendChild(item);
+    });
+    if (row.children.length) wrap.appendChild(row);
+  }
+
+  function addMsg(role, text, actions, attachments) {
     history.push({ role: role, text: text });
     if (history.length > 30) history.shift();
 
@@ -562,6 +648,17 @@
     bubble.className = 'leasy-bubble';
     bubble.textContent = text;
     wrap.appendChild(bubble);
+
+    renderAttachments(wrap, attachments);
+
+    var msgDel = document.createElement('button');
+    msgDel.type = 'button';
+    msgDel.className = 'leasy-msg-delete';
+    msgDel.title = 'Supprimer ce message';
+    msgDel.setAttribute('aria-label', 'Supprimer ce message');
+    msgDel.innerHTML = I.trash;
+    msgDel.addEventListener('click', function () { deleteMessage(role, text, wrap); });
+    wrap.appendChild(msgDel);
 
     if (actions && actions.length) {
       var row = document.createElement('div');
@@ -647,25 +744,25 @@
     }, delay);
   }
 
-  function reply(text) {
+  function reply(text, attachments) {
     var seq = ++aiSeq;
     var intent = matchIntent(text);
+    var hasFiles = attachments && ((attachments.images && attachments.images.length) ||
+      (attachments.files && attachments.files.length));
 
-    /* Les infos sensibles (prix, contact, délais…) restent exactes et locales. */
-    if (intent && intent.strict) { localReply(intent, seq); return; }
+    if (!hasFiles && intent && intent.strict) { localReply(intent, seq); return; }
     if (!aiEnabled()) { localReply(intent, seq); return; }
 
     pending++;
     var typing = showTyping();
-    askAI().then(function (txt) {
+    askAIRaw(attachments).then(function (result) {
       pending--;
       removeTyping(typing);
       if (seq !== aiSeq) return;
-      if (txt) {
-        addMsg('bot', txt);
-        if (voiceOn) speak(txt);
+      if (result && result.text) {
+        addMsg('bot', result.text, null, result.attachments);
+        if (voiceOn) speak(result.text);
       } else {
-        /* Service d'IA indisponible : on répond avec la base locale. */
         var res = intent ? (intent[LANG] || FALLBACK[LANG]) : FALLBACK[LANG];
         addMsg('bot', res.text, res.actions);
         if (voiceOn) speak(res.text);
@@ -680,6 +777,60 @@
     input.value = '';
     updateSend();
     reply(text);
+  }
+
+  function readFile(file, asDataUrl) {
+    return new Promise(function (resolve) {
+      var reader = new FileReader();
+      reader.onload = function () { resolve(String(reader.result || '')); };
+      reader.onerror = function () { resolve(''); };
+      if (asDataUrl) reader.readAsDataURL(file);
+      else reader.readAsText(file);
+    });
+  }
+
+  function sendFiles(fileList) {
+    var all = Array.prototype.slice.call(fileList || []);
+    if (!all.length) return;
+    var images = [];
+    var files = [];
+    var ignored = [];
+    var chain = Promise.resolve();
+
+    all.slice(0, 8).forEach(function (file) {
+      chain = chain.then(function () {
+        if (file.size > 4 * 1024 * 1024) {
+          ignored.push(file.name + ' (trop gros)');
+          return;
+        }
+        if (/^image\//i.test(file.type)) {
+          return readFile(file, true).then(function (data) {
+            if (data) images.push({ data: data, mimeType: file.type || 'image/jpeg' });
+          });
+        }
+        if (/\.(txt|md|csv|json|log|js|html|css|php)$/i.test(file.name) || /^text\//i.test(file.type)) {
+          return readFile(file, false).then(function (data) {
+            if (data) files.push({ name: file.name, type: file.type || 'text/plain', data: data });
+          });
+        }
+        ignored.push(file.name);
+      });
+    });
+
+    chain.then(function () {
+      if (!images.length && !files.length) {
+        addMsg('bot', LANG === 'en' ? 'No readable file found.' : 'Aucun fichier lisible trouvé.');
+        return;
+      }
+      var question = input.value.trim() ||
+        (LANG === 'en' ? 'Read these files and summarize them.' : 'Lis ces fichiers et résume-les.');
+      input.value = '';
+      updateSend();
+      var suffix = ignored.length ? ' (Ignorés : ' + ignored.join(', ') + ')' : '';
+      addMsg('user', '[Fichiers] ' + all.length + (LANG === 'en' ? ' file(s)' : ' fichier(s)') +
+        '\n' + question + suffix);
+      reply(question, { images: images, files: files });
+    });
   }
 
   function updateSend() {

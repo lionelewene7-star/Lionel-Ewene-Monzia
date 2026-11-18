@@ -347,6 +347,34 @@
 .leasy-file-link svg { width: 14px; height: 14px; flex: none; }
 .leasy-file-link span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+.leasy-attachment-item { position: relative; display: inline-flex; align-items: flex-start; }
+.leasy-attach-delete,
+.leasy-msg-delete {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--leasy-line);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--leasy-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+}
+.leasy-attach-delete svg,
+.leasy-msg-delete svg { width: 13px; height: 13px; display: block; }
+.leasy-attach-delete { position: absolute; top: -6px; right: -6px; z-index: 2; }
+.leasy-msg { position: relative; }
+.leasy-msg-delete { position: absolute; top: 4px; right: 4px; }
+.leasy-msg:hover .leasy-attach-delete,
+.leasy-msg:hover .leasy-msg-delete,
+.leasy-attach-delete:focus-visible,
+.leasy-msg-delete:focus-visible { opacity: 1; }
+.leasy-attach-delete:hover,
+.leasy-msg-delete:hover { color: #B42318; border-color: #B42318; }
+
 /* Actions dans les réponses */
 .leasy-actions {
   display: flex;
