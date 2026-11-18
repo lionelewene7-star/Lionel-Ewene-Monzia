@@ -19,6 +19,8 @@ window.LEASY_AI = {
   key: '',
   model: 'leasy',
   endpoint: 'https://leasy-advanced.pages.dev/api/chat',
+  fileEndpoint: 'https://leasy-advanced.pages.dev/api/file',
+  conversationId: 'lionel',
   timeout: 30000,
   maxHistory: 8
 };

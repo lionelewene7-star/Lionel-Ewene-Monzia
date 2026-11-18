@@ -23,6 +23,7 @@
       placeholder: 'Écrivez ou parlez…',
       send: 'Envoyer',
       mic: 'Parler à Leasy',
+      attach: 'Joindre un fichier',
       voiceOn: 'Couper la voix',
       voiceOff: 'Activer la voix',
       close: 'Fermer',
@@ -30,8 +31,8 @@
       note: 'Leasy est une IA — vos messages sont traités par un service externe. Pour un devis précis, Lionel vous répond sur WhatsApp.',
       noteLocal: 'Leasy est l\'assistant automatique d\'ONYX. Pour un devis précis, Lionel vous répond sur WhatsApp.',
       chips: ['Services', 'Tarifs', 'Portfolio', 'WhatsApp'],
-      welcome: 'Bonjour 👋 Je suis Leasy, l\'assistant du studio ONYX.\nJe peux vous renseigner sur les services, les délais, les tarifs ou le portfolio — et vous mettre en contact avec Lionel.',
-      hint: 'Astuce : appuyez sur le micro pour me parler 🎙️',
+      welcome: 'Bonjour, je suis Leasy, l\'assistant du studio ONYX.\nJe peux vous renseigner sur les services, les délais, les tarifs ou le portfolio — et vous mettre en contact avec Lionel.',
+      hint: 'Astuce : appuyez sur le micro pour me parler.',
       aiWelcome: 'Vous pouvez aussi me poser des questions générales : conseils, explications, rédaction.',
       micDenied: 'L\'accès au micro est bloqué. Autorisez le microphone dans votre navigateur, ou écrivez simplement votre message.',
       micError: 'Je n\'ai pas pu démarrer le micro. Réessayez, ou écrivez votre message.',
@@ -50,6 +51,7 @@
       placeholder: 'Type or speak…',
       send: 'Send',
       mic: 'Talk to Leasy',
+      attach: 'Attach a file',
       voiceOn: 'Mute voice',
       voiceOff: 'Enable voice',
       close: 'Close',
@@ -57,8 +59,8 @@
       note: 'Leasy is an AI — messages are processed by an external service. For an exact quote, Lionel replies on WhatsApp.',
       noteLocal: 'Leasy is ONYX\'s automatic assistant. For an exact quote, Lionel replies on WhatsApp.',
       chips: ['Services', 'Pricing', 'Portfolio', 'WhatsApp'],
-      welcome: 'Hi 👋 I\'m Leasy, the ONYX studio assistant.\nI can tell you about services, timelines, pricing or the portfolio — and connect you with Lionel.',
-      hint: 'Tip: tap the mic to talk to me 🎙️',
+      welcome: 'Hi, I\'m Leasy, the ONYX studio assistant.\nI can tell you about services, timelines, pricing or the portfolio — and connect you with Lionel.',
+      hint: 'Tip: tap the mic to talk to me.',
       aiWelcome: 'You can also ask me general questions: advice, explanations, writing help.',
       micDenied: 'Microphone access is blocked. Allow the microphone in your browser, or just type your message.',
       micError: 'I couldn\'t start the microphone. Try again, or type your message.',
@@ -85,7 +87,7 @@
       id: 'identity',
       strict: true,
       kw: ['qui es tu', 'tu es qui', 'ton nom', 'tu es une ia', 'une ia', 'ia', 'bot', 'assistant', 'intelligence artificielle', 'robot', 'chatbot', 'who are you', 'what are you', 'your name', 'are you human', 'are you a bot', 'are you ai'],
-      fr: { text: 'Je suis Leasy, l\'assistant virtuel du studio ONYX. Je réponds instantanément aux questions courantes et je peux vous mettre en relation avec Lionel pour un devis.\nJe ne suis pas une personne — mais je connais bien le studio 🙂', actions: ['wa'] },
+      fr: { text: 'Je suis Leasy, l\'assistant virtuel du studio ONYX. Je réponds instantanément aux questions courantes et je peux vous mettre en relation avec Lionel pour un devis.\nJe ne suis pas une personne — mais je connais bien le studio.', actions: ['wa'] },
       en: { text: 'I\'m Leasy, the ONYX studio\'s virtual assistant. I answer common questions instantly and can connect you with Lionel for a quote.\nI\'m not a person — but I know the studio well 🙂', actions: ['wa'] }
     },
     {
@@ -286,6 +288,7 @@
     key: '',
     model: 'gemini-2.5-flash',
     endpoint: '',
+    conversationId: 'lionel',
     timeout: 18000,
     maxHistory: 8
   };
@@ -309,7 +312,7 @@
   var SYS = {
     fr: [
       "Tu es Leasy, l'assistante du studio ONYX, fondé par Lionel Ewene Monzia (développeur web & designer UI/UX, basé en RD Congo, travail à distance partout dans le monde).",
-      "Ton : chaleureux, professionnel, direct. Réponds en français, en 2 à 4 phrases maximum, sans markdown ni listes à puces, avec au plus un emoji.",
+      "Ton : chaleureux, professionnel, direct. Réponds en français, en 2 à 4 phrases maximum, sans markdown ni listes à puces, sans emoji.",
       "Tu peux répondre à toutes sortes de questions : technologie, design, entrepreneuriat, rédaction, conseils, culture générale. Si la question est hors sujet, réponds quand même utilement, sans faire de publicité.",
       "Faits sur ONYX (à utiliser sans inventer) :",
       "- Services : sites web (vitrine, e-commerce), applications mobiles (iOS/Android, React Native), logiciels sur mesure, design UI/UX (Figma), identité visuelle (logo, charte), print (affiches, invitations).",
@@ -326,7 +329,7 @@
     ].join('\n'),
     en: [
       "You are Leasy, the assistant of ONYX studio, founded by Lionel Ewene Monzia (web developer & UI/UX designer, based in DR Congo, working remotely worldwide).",
-      "Tone: warm, professional, direct. Reply in English, in 2 to 4 sentences maximum, no markdown or bullet lists, with at most one emoji.",
+      "Tone: warm, professional, direct. Reply in English, in 2 to 4 sentences maximum, no markdown or bullet lists, no emoji.",
       "You can answer all kinds of questions: technology, design, entrepreneurship, writing, advice, general knowledge. If the question is off-topic, still answer usefully without promoting the studio.",
       "Facts about ONYX (never invent):",
       "- Services: websites (showcase, e-commerce), mobile apps (iOS/Android, React Native), custom software, UI/UX design (Figma), visual identity (logo, guidelines), print (posters, invitations).",
@@ -390,7 +393,7 @@
 
   var aiController = null;
 
-  function askAI() {
+  function askAIRaw(attachments) {
     var cfg = aiConfig();
     if (cfg.provider === 'none' || typeof fetch !== 'function') return Promise.resolve(null);
     if (aiController) { try { aiController.abort(); } catch (e) {} }
@@ -451,8 +454,16 @@
           txt = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content
             ? data.choices[0].message.content : '';
         }
-        finish(sanitizeReply(txt) || null);
+        var stored = data.attachments || [];
+        var clean = sanitizeReply(txt);
+        finish(clean ? { text: clean, attachments: stored } : null);
       }).catch(function () { finish(null); });
+    });
+  }
+
+  function askAI() {
+    return askAIRaw(null).then(function (result) {
+      return result ? result.text : null;
     });
   }
 
@@ -508,6 +519,8 @@
       '<div class="leasy-listening-hint" aria-hidden="true">' + UI.listening + '</div>' +
       '<div class="leasy-chips"></div>' +
       '<form class="leasy-form" autocomplete="off">' +
+        '<button class="leasy-attach" type="button" aria-label="' + UI.attach + '" title="' + UI.attach + '">' + I.attach + '</button>' +
+        '<input class="leasy-file" type="file" accept="image/*,text/*,.json,.js,.html,.css,.php" multiple hidden>' +
         '<button class="leasy-mic" type="button" aria-label="' + UI.mic + '" title="' + UI.mic + '">' + I.mic + '</button>' +
         '<input class="leasy-input" type="text" inputmode="text" enterkeyhint="send" placeholder="' + UI.placeholder + '" aria-label="' + UI.placeholder + '" maxlength="500">' +
         '<button class="leasy-send" type="submit" aria-label="' + UI.send + '" title="' + UI.send + '">' + I.send + '</button>' +
@@ -523,6 +536,8 @@
   var input = root.querySelector('.leasy-input');
   var sendBtn = root.querySelector('.leasy-send');
   var micBtn = root.querySelector('.leasy-mic');
+  var attachBtn = root.querySelector('.leasy-attach');
+  var fileInput = root.querySelector('.leasy-file');
   var voiceBtn = root.querySelector('.leasy-voice');
   var closeBtn = root.querySelector('.leasy-close');
   var chipsBox = root.querySelector('.leasy-chips');
@@ -820,6 +835,12 @@
     if (listening) { try { recog.stop(); } catch (e) {} return; }
     setVoice(true, true);
     try { recog.start(); } catch (e) {}
+  });
+
+  attachBtn.addEventListener('click', function () { fileInput.click(); });
+  fileInput.addEventListener('change', function () {
+    sendFiles(fileInput.files);
+    fileInput.value = '';
   });
 
   /* ---------- Ouverture / fermeture ---------- */
